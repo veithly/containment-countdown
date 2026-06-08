@@ -5,13 +5,13 @@
 Evidence crosses threshold, a human approves replay-mode containment, and a stored dossier keeps proof of the decision.
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Open-2dd4bf?style=for-the-badge)](https://containment-countdown.veithly.workers.dev)
-[![Demo Video](https://img.shields.io/badge/Demo_Video-YouTube-ef4444?style=for-the-badge)](https://www.youtube.com/watch?v=ZEs74UweOkc)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-YouTube-ef4444?style=for-the-badge)](https://www.youtube.com/watch?v=AuJitM0ErEg)
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers-f97316?style=for-the-badge)](./docs/DEPLOYMENT.md)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=for-the-badge)](./LICENSE)
 
 **Quick links:**
 [Live demo](https://containment-countdown.veithly.workers.dev) ·
-[Demo video](https://www.youtube.com/watch?v=ZEs74UweOkc) ·
+[Demo video](https://www.youtube.com/watch?v=AuJitM0ErEg) ·
 [Architecture](./docs/ARCHITECTURE.md) ·
 [Deployment](./docs/DEPLOYMENT.md) ·
 [Root diagram](./architecture_diagram.md)
@@ -34,7 +34,7 @@ This deployment uses seeded Splunk-compatible telemetry because live Splunk cred
 
 The public walkthrough is here:
 
-https://www.youtube.com/watch?v=ZEs74UweOkc
+https://www.youtube.com/watch?v=AuJitM0ErEg
 
 The video shows the judge path: open the mission, lower the threshold, approve replay-mode containment, inspect the dossier, and confirm the architecture boundary.
 
