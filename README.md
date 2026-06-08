@@ -9,12 +9,13 @@
 Evidence crosses threshold, a human approves containment, and a stored dossier proves the action.
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Open-2dd4bf?style=for-the-badge)](https://containment-countdown.veithly.workers.dev)
-[![Demo Video](https://img.shields.io/badge/Demo_Video-Local_MP4-ef4444?style=for-the-badge)](./pitch/recording/pitch-demo-combined-final.mp4)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-YouTube-ef4444?style=for-the-badge)](https://www.youtube.com/watch?v=ZEs74UweOkc)
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers-f97316?style=for-the-badge)](./docs/DEPLOYMENT.md)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=for-the-badge)](./LICENSE)
 
 **Quick links:**
 [Live demo](https://containment-countdown.veithly.workers.dev) ·
+[Demo video](https://www.youtube.com/watch?v=ZEs74UweOkc) ·
 [Architecture](./docs/ARCHITECTURE.md) ·
 [Deployment](./docs/DEPLOYMENT.md) ·
 [Root diagram](./architecture_diagram.md)

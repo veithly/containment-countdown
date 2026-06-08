@@ -13,10 +13,10 @@ Security. The demo centers on risky identity containment, approval control, and 
 https://containment-countdown.veithly.workers.dev
 
 ## Demo Video
-Local artifact for G6: `pitch/recording/pitch-demo-combined-final.mp4`
+https://www.youtube.com/watch?v=ZEs74UweOkc
 
 ## Repository
-Pending public GitHub URL.
+https://github.com/veithly/containment-countdown
 
 ## Integration Boundary
 The public deployment uses seeded Splunk-compatible telemetry. It does not claim live Splunk connectivity because `SPLUNK_HOST`, `SPLUNK_TOKEN`, and `SPLUNK_INDEX` are not configured. Cloudflare D1/KV/R2 persistence and the OpenAI-compatible reasoning route are live production integrations.
