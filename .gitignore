@@ -12,14 +12,15 @@ test-results
 .dev.vars
 *.log
 
-# Hackathon media build products (published separately via video host)
-artifacts/playwright/
-artifacts/tts_chunks/
-artifacts/tts_concat.txt
-artifacts/vo.*
-pitch/recording/*.webm
-pitch/recording/*.mp4
-pitch/recording/*.gif
-pitch/polish-combined/assets/*.mp3
-pitch/polish-combined/subtitle-overlays/
-.hunter/archive/
+# Hackathon workflow and media artifacts stay local; repo keeps code + architecture docs.
+.hunter/
+artifacts/
+pitch/
+docs/screenshots/
+docs/ui-mockups/
+bounty_brief.md
+SUBMISSION.md
+scripts/assemble-g6-video.mjs
+scripts/export-deck.mjs
+scripts/record-demo.mjs
+scripts/take-screenshots.mjs

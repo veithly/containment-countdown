@@ -1,7 +1,3 @@
-<div align="center">
-
-<img src="./docs/screenshots/hero.png" alt="Containment Countdown hero" width="100%" />
-
 # Containment Countdown
 
 > **Approve containment for risky identities in 60 seconds after evidence crosses threshold.**
@@ -10,21 +6,15 @@ Evidence crosses threshold, a human approves replay-mode containment, and a stor
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Open-2dd4bf?style=for-the-badge)](https://containment-countdown.veithly.workers.dev)
 [![Demo Video](https://img.shields.io/badge/Demo_Video-YouTube-ef4444?style=for-the-badge)](https://www.youtube.com/watch?v=ZEs74UweOkc)
-[![Pitch Deck](https://img.shields.io/badge/Pitch_Deck-PDF-7dd3fc?style=for-the-badge)](./pitch/deck/containment-countdown-deck.pdf)
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers-f97316?style=for-the-badge)](./docs/DEPLOYMENT.md)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=for-the-badge)](./LICENSE)
 
 **Quick links:**
 [Live demo](https://containment-countdown.veithly.workers.dev) ·
 [Demo video](https://www.youtube.com/watch?v=ZEs74UweOkc) ·
-[Pitch deck](./pitch/deck/containment-countdown-deck.pdf) ·
-[Deck run-of-show](./pitch/deck-demo-run-of-show.md) ·
 [Architecture](./docs/ARCHITECTURE.md) ·
-[Smoke proof](./artifacts/public/smoke-proof.json) ·
 [Deployment](./docs/DEPLOYMENT.md) ·
 [Root diagram](./architecture_diagram.md)
-
-</div>
 
 ---
 
@@ -40,26 +30,13 @@ This deployment uses seeded Splunk-compatible telemetry because live Splunk cred
 | Proof | Screenshot | Paragraph | **Dossier with evidence, replay action, verification** |
 | Runtime | View-only | Model-only | **Public Worker with D1/KV/R2 writes** |
 
-## 30-Second Demo
+## Demo Video
 
-<table>
-  <tr>
-    <td width="50%"><img src="./docs/screenshots/hero.png" alt="Hero" /></td>
-    <td width="50%"><img src="./docs/screenshots/flow.png" alt="Mission flow" /></td>
-  </tr>
-  <tr>
-    <td><b>1.</b> The judge sees the claim and opens the mission.</td>
-    <td><b>2.</b> Evidence crosses threshold and the approval gate becomes active.</td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="./docs/screenshots/mobile.png" alt="Mobile dossier" /></td>
-    <td width="50%"><img src="./docs/screenshots/architecture.png" alt="Architecture" /></td>
-  </tr>
-  <tr>
-    <td><b>3.</b> The dossier proves the replay containment decision.</td>
-    <td><b>4.</b> The architecture names the replay boundary and live services.</td>
-  </tr>
-</table>
+The public walkthrough is here:
+
+https://www.youtube.com/watch?v=ZEs74UweOkc
+
+The video shows the judge path: open the mission, lower the threshold, approve replay-mode containment, inspect the dossier, and confirm the architecture boundary.
 
 ## Quick Start
 
@@ -75,7 +52,6 @@ Production smoke:
 
 ```bash
 DEPLOYED_URL=https://containment-countdown.veithly.workers.dev npx playwright test
-node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/visual_qa_scan.mjs /Users/rick/Documents/Project/Hackathon/Splunk --url https://containment-countdown.veithly.workers.dev --fail-on warn
 ```
 
 ## How It Works
@@ -98,8 +74,6 @@ flowchart LR
 | Reasoning | OpenAI-compatible API | Server-side SOC note, no browser-exposed key |
 | Storage | Cloudflare D1/KV/R2 | Durable proof chain for approvals and dossiers |
 | Testing | Playwright + visual QA | Hero path and mobile proof path both checked |
-
-Public smoke evidence lives in [`artifacts/public/smoke-proof.json`](./artifacts/public/smoke-proof.json). It records the redacted D1/KV/R2 and OpenAI-compatible route checks without exposing secrets.
 
 ## Bounty Fit
 
@@ -124,22 +98,10 @@ Public smoke evidence lives in [`artifacts/public/smoke-proof.json`](./artifacts
 ├── src/components          # Mission cockpit, decision chamber, dossier view
 ├── src/lib                 # Containment model, Splunk boundary, AI, storage
 ├── migrations              # D1 schema
-├── docs                    # Architecture, deployment, screenshots
-├── pitch                   # Draft deck, recording, visual QA, GPT Pro evidence
-└── .hunter                 # HackathonHunter gate state and reports
+├── docs                    # Architecture and deployment notes
+├── tests                   # Playwright judge-path checks
+└── public                  # Brand assets and public architecture mirror
 ```
-
-## Reproduce The Demo Package
-
-```bash
-npm run deck:export
-npm run screenshots
-npx tsx /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/narrate_tts.ts artifacts/narration.json
-npm run record
-npm run video:assemble
-```
-
-The rendered deck lives at `pitch/deck/containment-countdown-deck.pdf`; the HTML source, slide thumbnails, speaker notes, demo run-of-show, and motion layers live under `pitch/`.
 
 ## License
 

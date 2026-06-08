@@ -64,5 +64,4 @@ After deploy, run the deployed smoke checks:
 
 ```bash
 DEPLOYED_URL=https://containment-countdown.veithly.workers.dev npx playwright test
-node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/visual_qa_scan.mjs /Users/rick/Documents/Project/Hackathon/Splunk --url https://containment-countdown.veithly.workers.dev --fail-on warn
 ```
