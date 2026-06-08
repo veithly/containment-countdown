@@ -12,6 +12,7 @@
     "cf:types": "wrangler types worker-configuration.d.ts",
     "deploy": "wrangler deploy",
     "screenshots": "node scripts/take-screenshots.mjs",
+    "deck:export": "node scripts/export-deck.mjs",
     "record": "node scripts/record-demo.mjs",
     "video:assemble": "node scripts/assemble-g6-video.mjs",
     "start": "next start -p 4387",

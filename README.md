@@ -10,13 +10,16 @@ Evidence crosses threshold, a human approves containment, and a stored dossier p
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Open-2dd4bf?style=for-the-badge)](https://containment-countdown.veithly.workers.dev)
 [![Demo Video](https://img.shields.io/badge/Demo_Video-YouTube-ef4444?style=for-the-badge)](https://www.youtube.com/watch?v=ZEs74UweOkc)
+[![Pitch Deck](https://img.shields.io/badge/Pitch_Deck-PDF-7dd3fc?style=for-the-badge)](./pitch/deck/containment-countdown-deck.pdf)
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers-f97316?style=for-the-badge)](./docs/DEPLOYMENT.md)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=for-the-badge)](./LICENSE)
 
 **Quick links:**
 [Live demo](https://containment-countdown.veithly.workers.dev) ·
 [Demo video](https://www.youtube.com/watch?v=ZEs74UweOkc) ·
+[Pitch deck](./pitch/deck/containment-countdown-deck.pdf) ·
 [Architecture](./docs/ARCHITECTURE.md) ·
+[Smoke proof](./artifacts/public/smoke-proof.json) ·
 [Deployment](./docs/DEPLOYMENT.md) ·
 [Root diagram](./architecture_diagram.md)
 
@@ -28,7 +31,7 @@ Evidence crosses threshold, a human approves containment, and a stored dossier p
 
 Identity incidents often stop at a summary. Containment Countdown makes the next step visible: evidence accumulates, confidence crosses a policy threshold, an operator approves, and the proof artifact survives the demo.
 
-This deployment uses seeded Splunk-compatible telemetry because live Splunk credentials are not configured. The production Worker still does real work: approval writes land in Cloudflare D1, KV, and R2, and the reasoning note comes from a server-side OpenAI-compatible API call.
+This deployment uses seeded Splunk-compatible telemetry because live Splunk credentials are not configured. The production Worker still does real work: approval writes land in Cloudflare D1, KV, and R2, and the reasoning note comes from a server-side OpenAI-compatible API call. Agentic scope stays narrow: the reasoning route writes a SOC decision note and the workflow prepares replay-mode containment, but the state change remains human-approved.
 
 | | Static dashboard | Alert summary | **Containment Countdown** |
 | --- | --- | --- | --- |
@@ -78,7 +81,7 @@ node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/visual_qa_scan.
 
 ```mermaid
 flowchart LR
-  A[Seeded Splunk-compatible telemetry] --> B[MCP / SPL query boundary]
+  A[Seeded Splunk-compatible telemetry] --> B[SPL / REST query boundary]
   B --> C[Threshold policy engine]
   C --> D[Human approval gate]
   D --> E[Containment executor]
@@ -95,20 +98,22 @@ flowchart LR
 | Storage | Cloudflare D1/KV/R2 | Durable proof chain for approvals and dossiers |
 | Testing | Playwright + visual QA | Hero path and mobile proof path both checked |
 
+Public smoke evidence lives in [`artifacts/public/smoke-proof.json`](./artifacts/public/smoke-proof.json). It records the redacted D1/KV/R2 and OpenAI-compatible route checks without exposing secrets.
+
 ## Bounty Fit
 
 | Track | Fit |
 | --- | --- |
 | Security | Risky identity containment, approval control, and verification proof. |
 | Platform & Developer Experience | Clear Cloudflare deployment, root architecture diagram, reproducible smoke commands. |
-| Splunk AI story | Splunk-compatible evidence drives the visible workflow; live Splunk REST credentials can replace replay. |
+| Splunk AI story | Splunk-compatible evidence drives the visible workflow; live Splunk REST credentials can replace replay after smoke testing. |
 
 ## Boundary
 
 - The current public demo does **not** claim live Splunk connectivity.
 - `SPLUNK_HOST`, `SPLUNK_TOKEN`, and `SPLUNK_INDEX` are optional live-mode values.
 - `OPENAI_API_KEY`, `OPENAI_BASE_URL`, and `OPENAI_DEFAULT_MODEL` are server-side Worker secrets.
-- No real IAM or firewall change occurs in replay mode.
+- Replay containment changes the demo incident state only; no real IAM or firewall change occurs.
 
 ## Repository Layout
 
@@ -126,11 +131,14 @@ flowchart LR
 ## Reproduce The Demo Package
 
 ```bash
+npm run deck:export
 npm run screenshots
 npx tsx /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/narrate_tts.ts artifacts/narration.json
 npm run record
 npm run video:assemble
 ```
+
+The rendered deck lives at `pitch/deck/containment-countdown-deck.pdf`; the HTML source, slide thumbnails, speaker notes, and motion layers live under `pitch/`.
 
 ## License
 

@@ -4,8 +4,8 @@ Containment Countdown follows one loop:
 
 ```mermaid
 flowchart LR
-  telemetry["Seeded Splunk-compatible telemetry"] --> mcp["MCP / SPL query boundary"]
-  mcp --> policy["Threshold policy engine"]
+  telemetry["Seeded Splunk-compatible telemetry"] --> boundary["SPL / REST query boundary"]
+  boundary --> policy["Threshold policy engine"]
   policy --> approval["Human approval gate"]
   approval --> executor["Deterministic containment executor"]
   executor --> verify["Verification query"]
@@ -24,7 +24,7 @@ flowchart LR
 
 The public build uses seeded Splunk-compatible telemetry. It does not claim live Splunk connectivity.
 
-`/api/mcp/query` includes an optional Splunk REST path for `SPLUNK_HOST`, `SPLUNK_TOKEN`, and `SPLUNK_INDEX`. Because those values are not configured, production returns deterministic replay data and labels it as such.
+`/api/mcp/query` exposes the app's internal query route. Its live-mode path uses Splunk REST export when `SPLUNK_HOST`, `SPLUNK_TOKEN`, and `SPLUNK_INDEX` are configured. Because those values are not configured, production returns deterministic replay data and labels it as such.
 
 Cloudflare deployment contracts:
 

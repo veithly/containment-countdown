@@ -1,0 +1,116 @@
+{
+  "project": "Containment Countdown",
+  "generated_at": "2026-06-08T06:09:45.276Z",
+  "source": "pitch/deck.html",
+  "format": "1920x1200 HTML deck exported to PDF and PNG",
+  "pdf": "pitch/deck/containment-countdown-deck.pdf",
+  "thumbnails": [
+    {
+      "id": "slide-01",
+      "selector": "[data-slide=\"1\"]",
+      "path": "pitch/deck-thumbs/slide-01.png"
+    },
+    {
+      "id": "slide-02",
+      "selector": "[data-slide=\"2\"]",
+      "path": "pitch/deck-thumbs/slide-02.png"
+    },
+    {
+      "id": "slide-03",
+      "selector": "[data-slide=\"3\"]",
+      "path": "pitch/deck-thumbs/slide-03.png"
+    },
+    {
+      "id": "slide-04",
+      "selector": "[data-slide=\"4\"]",
+      "path": "pitch/deck-thumbs/slide-04.png"
+    },
+    {
+      "id": "slide-05",
+      "selector": "[data-slide=\"5\"]",
+      "path": "pitch/deck-thumbs/slide-05.png"
+    }
+  ],
+  "layers": [
+    {
+      "id": "slide-01-logo",
+      "slide": "slide-01",
+      "selector": "[data-slide=\"1\"] .brand",
+      "treatment": "3D floating logo lockup on title card",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-01-logo.png"
+    },
+    {
+      "id": "slide-01-artifact-app",
+      "slide": "slide-01",
+      "selector": "[data-layer=\"slide-01-artifact-app\"]",
+      "treatment": "tilted product artifact",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-01-artifact-app.png"
+    },
+    {
+      "id": "slide-01-artifact-demo",
+      "slide": "slide-01",
+      "selector": "[data-layer=\"slide-01-artifact-demo\"]",
+      "treatment": "stacked proof cards",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-01-artifact-demo.png"
+    },
+    {
+      "id": "slide-02-pressure-card",
+      "slide": "slide-02",
+      "selector": "[data-layer=\"slide-02-pressure-card\"]",
+      "treatment": "shared object transition into demo plate",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-02-pressure-card.png"
+    },
+    {
+      "id": "slide-03-demo-video",
+      "slide": "slide-03",
+      "selector": "[data-layer=\"slide-03-demo-video\"]",
+      "treatment": "video plate with chapter callouts",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-03-demo-video.png"
+    },
+    {
+      "id": "slide-04-block-signal-context",
+      "slide": "slide-04",
+      "selector": "[data-layer=\"slide-04-block-signal-context\"]",
+      "treatment": "mechanism card lift",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-04-block-signal-context.png"
+    },
+    {
+      "id": "slide-04-block-decision",
+      "slide": "slide-04",
+      "selector": "[data-layer=\"slide-04-block-decision\"]",
+      "treatment": "mechanism card lift",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-04-block-decision.png"
+    },
+    {
+      "id": "slide-04-block-action",
+      "slide": "slide-04",
+      "selector": "[data-layer=\"slide-04-block-action\"]",
+      "treatment": "mechanism card lift",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-04-block-action.png"
+    },
+    {
+      "id": "slide-04-block-proof",
+      "slide": "slide-04",
+      "selector": "[data-layer=\"slide-04-block-proof\"]",
+      "treatment": "mechanism card lift",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-04-block-proof.png"
+    },
+    {
+      "id": "slide-05-proof-card",
+      "slide": "slide-05",
+      "selector": "[data-layer=\"slide-05-proof-card\"]",
+      "treatment": "proof table zoom and marker sweep",
+      "exported": true,
+      "path": "pitch/deck-layers/slide-05-proof-card.png"
+    }
+  ]
+}

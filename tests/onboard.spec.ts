@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("fresh judge completes the hero containment path", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByText("Contain risky identities in 60 seconds after evidence crosses threshold.").first()).toBeVisible();
+  await expect(page.getByText("Approve containment for risky identities in 60 seconds after evidence crosses threshold.").first()).toBeVisible();
   await page.getByRole("link", { name: /open mission/i }).click();
   await expect(page.getByTestId("countdown-ring")).toBeVisible();
   await page.getByTestId("threshold-slider").fill("70");

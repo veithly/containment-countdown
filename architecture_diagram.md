@@ -3,7 +3,7 @@
 ```mermaid
 flowchart LR
   A["Risky identity telemetry"] --> B["Seeded Splunk-compatible replay"]
-  B --> C["SPL transcript / MCP query boundary"]
+  B --> C["SPL transcript / REST query boundary"]
   C --> D["Threshold policy engine"]
   D --> E["Human approval gate"]
   E --> F["Containment executor"]
@@ -14,4 +14,4 @@ flowchart LR
   C --> K["OpenAI-compatible reasoning API"]
 ```
 
-The current public build uses deterministic replay and does not claim live Splunk credentials are configured. Cloudflare D1/KV/R2 and the OpenAI-compatible reasoning route are live production integrations.
+Seeded Splunk-compatible telemetry is the public evidence model. When `SPLUNK_HOST`, `SPLUNK_TOKEN`, and `SPLUNK_INDEX` are configured, the same SPL/REST boundary can use live Splunk as the evidence and verification source. Cloudflare D1/KV/R2 and the OpenAI-compatible reasoning route are live production integrations.

@@ -35,7 +35,7 @@
 
 ```mermaid
 flowchart LR
-  A[Seeded Splunk-compatible telemetry] --> B[MCP / SPL query boundary]
+  A[Seeded Splunk-compatible telemetry] --> B[SPL / REST query boundary]
   B --> C[Threshold policy engine]
   C --> D[Human approval]
   D --> E[D1/KV/R2 proof store]
@@ -53,9 +53,10 @@ flowchart LR
 | Approve containment | `/api/containment/approve` | Five D1 tables receive the proof chain |
 | Reasoning note | `/api/spl/generate` | OpenAI-compatible API returns the SOC note |
 
-**Repo:** pending public GitHub URL  
+**Repo:** https://github.com/veithly/containment-countdown  
 **Demo:** https://containment-countdown.veithly.workers.dev  
-**Video:** `pitch/recording/pitch-demo-combined-final.mp4`  
+**Video:** https://www.youtube.com/watch?v=ZEs74UweOkc  
+**Deck:** `pitch/deck/containment-countdown-deck.pdf`  
 **Looking for:** Splunk reviewers who can test the live credential path.
 
 **Notes:** "Everything in the public demo is reproducible. The claim is narrow: live Cloudflare proof storage and reasoning API, seeded Splunk-compatible telemetry."

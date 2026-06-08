@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Containment Countdown Pitch Deck</title>
+    <style>
+      :root {
+        --bg: #070b0f;
+        --panel: #0d141b;
+        --panel-2: #111b24;
+        --line: rgba(148, 163, 184, 0.28);
+        --line-strong: rgba(226, 232, 240, 0.42);
+        --ink: #f8fafc;
+        --muted: #94a3b8;
+        --soft: #cbd5e1;
+        --cold: #7dd3fc;
+        --proof: #34d399;
+        --warn: #f59e0b;
+        --danger: #ef4444;
+        --paper: #f7f3e8;
+        --shadow: 0 40px 120px rgba(0, 0, 0, 0.36);
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: #030609;
+        color: var(--ink);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        letter-spacing: 0;
+      }
+
+      body {
+        display: grid;
+        justify-items: center;
+      }
+
+      .deck {
+        width: 1920px;
+      }
+
+      .slide {
+        position: relative;
+        width: 1920px;
+        height: 1200px;
+        overflow: hidden;
+        isolation: isolate;
+        background:
+          linear-gradient(rgba(125, 211, 252, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(125, 211, 252, 0.035) 1px, transparent 1px),
+          radial-gradient(circle at 12% -10%, rgba(125, 211, 252, 0.13), transparent 30%),
+          radial-gradient(circle at 92% 104%, rgba(52, 211, 153, 0.09), transparent 30%),
+          var(--bg);
+        background-size: 64px 64px, 64px 64px, 100% 100%, 100% 100%, 100% 100%;
+      }
+
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 52px;
+        z-index: -1;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        pointer-events: none;
+      }
+
+      .slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(90deg, rgba(7, 11, 15, 0.98) 0%, rgba(7, 11, 15, 0.78) 46%, rgba(7, 11, 15, 0.94) 100%),
+          repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 4px);
+      }
+
+      .kicker,
+      .mono,
+      .small-mono {
+        font-family:
+          "SFMono-Regular",
+          Consolas,
+          "Liberation Mono",
+          Menlo,
+          monospace;
+      }
+
+      .kicker {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 12px;
+        min-height: 42px;
+        padding: 0 15px;
+        border: 1px solid rgba(125, 211, 252, 0.32);
+        background: rgba(125, 211, 252, 0.08);
+        color: var(--cold);
+        font-size: 17px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .kicker::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        background: var(--proof);
+        box-shadow: 0 0 26px rgba(52, 211, 153, 0.8);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 900px;
+        font-size: 92px;
+        font-weight: 780;
+        line-height: 0.95;
+      }
+
+      h2 {
+        max-width: 900px;
+        font-size: 74px;
+        font-weight: 760;
+        line-height: 0.98;
+      }
+
+      h3 {
+        color: var(--ink);
+        font-size: 30px;
+        font-weight: 720;
+        line-height: 1.08;
+      }
+
+      p {
+        color: var(--soft);
+        font-size: 30px;
+        line-height: 1.25;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .topline {
+        position: absolute;
+        top: 72px;
+        left: 84px;
+        right: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        z-index: 5;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        min-width: 0;
+      }
+
+      .brand img {
+        width: 58px;
+        height: 58px;
+      }
+
+      .brand span {
+        display: grid;
+        gap: 4px;
+      }
+
+      .brand strong {
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .brand small {
+        color: var(--cold);
+        font-size: 15px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .slide-number {
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .content {
+        position: absolute;
+        left: 84px;
+        right: 84px;
+        top: 168px;
+        bottom: 72px;
+        display: grid;
+        gap: 34px;
+      }
+
+      .content.two-col {
+        grid-template-columns: 0.78fr 1fr;
+        align-items: stretch;
+      }
+
+      .content.two-col-reverse {
+        grid-template-columns: 1.06fr 0.72fr;
+        align-items: stretch;
+      }
+
+      .headline-stack {
+        display: grid;
+        align-content: start;
+        gap: 28px;
+      }
+
+      .hero-copy {
+        max-width: 720px;
+      }
+
+      .metric-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        width: min(790px, 100%);
+      }
+
+      .metric {
+        min-height: 124px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        background: rgba(13, 20, 27, 0.68);
+      }
+
+      .metric b {
+        display: block;
+        color: var(--ink);
+        font-size: 38px;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .screen-card {
+        position: relative;
+        border: 1px solid rgba(125, 211, 252, 0.26);
+        background: rgba(13, 20, 27, 0.76);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .screen-card img,
+      .screen-card video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-screen {
+        align-self: end;
+        width: 930px;
+        height: 582px;
+        transform: translateY(10px);
+      }
+
+      .screen-label {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 68px;
+        padding: 14px 18px;
+        border: 1px solid rgba(226, 232, 240, 0.24);
+        background: rgba(7, 11, 15, 0.82);
+        color: var(--soft);
+        font-size: 18px;
+      }
+
+      .status-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 12px;
+        background: rgba(52, 211, 153, 0.14);
+        color: var(--proof);
+        font-weight: 720;
+      }
+
+      .side-proof-stack {
+        position: absolute;
+        right: 136px;
+        bottom: 118px;
+        display: grid;
+        gap: 14px;
+        width: 340px;
+      }
+
+      .proof-pill {
+        display: grid;
+        gap: 5px;
+        padding: 18px;
+        border: 1px solid rgba(52, 211, 153, 0.34);
+        background: rgba(7, 11, 15, 0.86);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+      }
+
+      .proof-pill strong {
+        font-size: 20px;
+      }
+
+      .proof-pill span {
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .pressure-visual {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        align-content: center;
+      }
+
+      .failure-card {
+        position: relative;
+        min-height: 178px;
+        padding: 30px 32px;
+        border: 1px solid var(--line);
+        background: rgba(13, 20, 27, 0.76);
+        overflow: hidden;
+      }
+
+      .failure-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 8px;
+        background: var(--danger);
+      }
+
+      .failure-card:nth-child(2)::before {
+        background: var(--warn);
+      }
+
+      .failure-card:nth-child(3)::before {
+        background: var(--cold);
+      }
+
+      .failure-card small {
+        display: block;
+        color: var(--muted);
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+
+      .failure-card strong {
+        display: block;
+        margin-top: 12px;
+        color: var(--ink);
+        font-size: 36px;
+        line-height: 1.05;
+      }
+
+      .failure-card p {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 22px;
+      }
+
+      .tradeoff-board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        align-self: end;
+      }
+
+      .board-col {
+        min-height: 470px;
+        padding: 24px;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+          rgba(7, 11, 15, 0.74);
+      }
+
+      .board-col .mono {
+        color: var(--cold);
+        font-size: 17px;
+        text-transform: uppercase;
+      }
+
+      .board-col h3 {
+        margin-top: 18px;
+      }
+
+      .board-col p {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 23px;
+      }
+
+      .break-line {
+        height: 1px;
+        margin: 28px 0;
+        background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.8), transparent);
+      }
+
+      .demo-stage {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .demo-video {
+        height: 525px;
+      }
+
+      .play-badge {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: grid;
+        place-items: center;
+        width: 138px;
+        height: 138px;
+        border: 1px solid rgba(248, 250, 252, 0.5);
+        background: rgba(7, 11, 15, 0.72);
+        color: var(--ink);
+        font-size: 56px;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      .chapter-rail {
+        display: grid;
+        gap: 12px;
+      }
+
+      .chapter {
+        display: grid;
+        gap: 8px;
+        min-height: 95px;
+        padding: 14px 18px;
+        border: 1px solid var(--line);
+        background: rgba(13, 20, 27, 0.76);
+      }
+
+      .chapter b {
+        color: var(--proof);
+        font-size: 21px;
+      }
+
+      .chapter span {
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.18;
+      }
+
+      .caption-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 70px;
+        padding: 16px 24px;
+        border: 1px solid rgba(52, 211, 153, 0.32);
+        background: rgba(7, 11, 15, 0.84);
+      }
+
+      .caption-bar strong {
+        color: var(--ink);
+        font-size: 24px;
+      }
+
+      .caption-bar span {
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .boundary-badge {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        min-height: 46px;
+        padding: 0 14px;
+        border: 1px solid rgba(245, 158, 11, 0.42);
+        background: rgba(245, 158, 11, 0.09);
+        color: var(--warn);
+        font-size: 17px;
+        font-weight: 740;
+        text-transform: uppercase;
+      }
+
+      .mechanism {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        align-self: center;
+      }
+
+      .mechanism-card {
+        position: relative;
+        min-height: 390px;
+        padding: 26px;
+        border: 1px solid rgba(125, 211, 252, 0.24);
+        background:
+          linear-gradient(180deg, rgba(125, 211, 252, 0.08), transparent 44%),
+          rgba(13, 20, 27, 0.78);
+      }
+
+      .mechanism-card::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -27px;
+        width: 38px;
+        height: 1px;
+        background: rgba(125, 211, 252, 0.72);
+      }
+
+      .mechanism-card:last-child::after {
+        display: none;
+      }
+
+      .mechanism-card .index {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        border: 1px solid rgba(52, 211, 153, 0.4);
+        background: rgba(52, 211, 153, 0.12);
+        color: var(--proof);
+        font-size: 22px;
+        font-weight: 780;
+      }
+
+      .mechanism-card h3 {
+        margin-top: 26px;
+        min-height: 66px;
+      }
+
+      .mechanism-card p {
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 22px;
+      }
+
+      .architecture-strip {
+        display: grid;
+        grid-template-columns: 0.66fr 1fr;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .formula-card {
+        padding: 30px;
+        border: 1px solid rgba(245, 158, 11, 0.34);
+        background: rgba(245, 158, 11, 0.08);
+      }
+
+      .formula-card strong {
+        display: block;
+        color: var(--warn);
+        font-size: 21px;
+        text-transform: uppercase;
+      }
+
+      .formula-card p {
+        margin-top: 12px;
+        color: var(--ink);
+        font-size: 30px;
+      }
+
+      .mini-architecture {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .mini-architecture span {
+        display: grid;
+        place-items: center;
+        min-height: 86px;
+        padding: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        color: var(--soft);
+        background: rgba(7, 11, 15, 0.72);
+        font-size: 17px;
+        text-align: center;
+      }
+
+      .proof-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(13, 20, 27, 0.72);
+      }
+
+      .proof-table th,
+      .proof-table td {
+        padding: 22px 24px;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .proof-table th {
+        color: var(--cold);
+        font-size: 17px;
+        text-transform: uppercase;
+      }
+
+      .proof-table td {
+        color: var(--soft);
+        font-size: 23px;
+        line-height: 1.2;
+      }
+
+      .proof-table td:first-child {
+        color: var(--ink);
+        font-weight: 730;
+      }
+
+      .link-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .link-card {
+        min-height: 142px;
+        padding: 22px;
+        border: 1px solid rgba(52, 211, 153, 0.28);
+        background: rgba(7, 11, 15, 0.82);
+      }
+
+      .link-card small {
+        display: block;
+        color: var(--muted);
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+
+      .link-card strong {
+        display: block;
+        margin-top: 12px;
+        color: var(--ink);
+        font-size: 30px;
+        line-height: 1.15;
+        overflow-wrap: anywhere;
+      }
+
+      .link-card em {
+        display: block;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 16px;
+        font-style: normal;
+        line-height: 1.15;
+        overflow-wrap: anywhere;
+      }
+
+      .ask-card {
+        min-height: 170px;
+        padding: 26px;
+        border: 1px solid rgba(245, 158, 11, 0.36);
+        background: rgba(245, 158, 11, 0.08);
+      }
+
+      .ask-card strong {
+        color: var(--warn);
+        font-size: 22px;
+        text-transform: uppercase;
+      }
+
+      .ask-card p {
+        margin-top: 14px;
+        color: var(--ink);
+        font-size: 30px;
+      }
+
+      .footer-note {
+        position: absolute;
+        left: 84px;
+        right: 84px;
+        bottom: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: rgba(203, 213, 225, 0.72);
+        font-size: 17px;
+      }
+
+      .accent-line {
+        position: absolute;
+        left: 84px;
+        bottom: 38px;
+        width: 390px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--cold), var(--proof));
+      }
+
+      .scan-mark {
+        position: absolute;
+        top: 0;
+        left: -10%;
+        width: 22%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.06), transparent);
+        transform: skewX(-10deg);
+      }
+
+      .slide[data-slide="1"] .scan-mark {
+        left: 44%;
+      }
+
+      .slide[data-slide="3"] .content {
+        top: 162px;
+        bottom: 56px;
+        gap: 16px;
+      }
+
+      .slide[data-slide="3"] h2 {
+        font-size: 66px;
+      }
+
+      .slide[data-slide="5"] .content.two-col-reverse {
+        grid-template-columns: 1fr 0.78fr;
+      }
+
+      @page {
+        size: 1920px 1200px;
+        margin: 0;
+      }
+
+      @media print {
+        html,
+        body {
+          width: 1920px;
+          background: var(--bg);
+        }
+
+        .deck {
+          width: 1920px;
+        }
+
+        .slide {
+          page-break-after: always;
+          break-after: page;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck" aria-label="Containment Countdown pitch deck">
+      <section class="slide" data-slide="1" data-notes="Approve containment for risky identities in 60 seconds after evidence crosses threshold. Start with the action, then show the proof.">
+        <div class="scan-mark" aria-hidden="true"></div>
+        <header class="topline">
+          <a class="brand" href="https://containment-countdown.veithly.workers.dev">
+            <img src="../public/brand/logomark.svg" alt="" />
+            <span>
+              <strong>Containment Countdown</strong>
+              <small>Splunk Agentic Ops</small>
+            </span>
+          </a>
+          <span class="slide-number mono">01 / Hero</span>
+        </header>
+        <div class="content two-col">
+          <div class="headline-stack">
+            <span class="kicker">60-second operator loop</span>
+            <h1>Approve containment for risky identities in 60 seconds</h1>
+            <p class="hero-copy">Evidence crosses threshold, a human approves, and the dossier proves the action.</p>
+            <div class="metric-row">
+              <div class="metric">
+                <b>60s</b>
+                <span>visible evidence window</span>
+              </div>
+              <div class="metric">
+                <b>1 click</b>
+                <span>human approval gate</span>
+              </div>
+              <div class="metric">
+                <b>D1/KV/R2</b>
+                <span>stored proof chain</span>
+              </div>
+            </div>
+          </div>
+          <div class="screen-card hero-screen" data-layer="slide-01-artifact-app">
+            <img src="./screenshots/01-hero.png" alt="Containment Countdown hero screen" />
+            <div class="screen-label">
+              <span>Public demo: containment-countdown.veithly.workers.dev</span>
+              <span class="status-chip">READY TO TEST</span>
+            </div>
+          </div>
+        </div>
+        <div class="side-proof-stack" data-layer="slide-01-artifact-demo">
+          <div class="proof-pill">
+            <strong>Signal -> Context</strong>
+            <span>Splunk-compatible evidence rows feed the policy threshold.</span>
+          </div>
+          <div class="proof-pill">
+            <strong>Decision -> Action</strong>
+            <span>Approval changes ACTIVE to CONTAINED in the demo path.</span>
+          </div>
+          <div class="proof-pill">
+            <strong>Proof</strong>
+            <span>A dossier survives as an inspectable artifact.</span>
+          </div>
+        </div>
+        <div class="accent-line"></div>
+      </section>
+
+      <section class="slide" data-slide="2" data-notes="Security teams do not need another alert paragraph. They need a short path from evidence to a reversible, documented action.">
+        <header class="topline">
+          <a class="brand" href="https://containment-countdown.veithly.workers.dev">
+            <img src="../public/brand/logomark.svg" alt="" />
+            <span>
+              <strong>Containment Countdown</strong>
+              <small>The pressure</small>
+            </span>
+          </a>
+          <span class="slide-number mono">02 / Problem</span>
+        </header>
+        <div class="content two-col-reverse">
+          <div class="headline-stack">
+            <span class="kicker">The handoff that fails</span>
+            <h2>Risky identities still bounce between evidence and action.</h2>
+            <p>The missing piece is not another summary. It is a human-approved state change with an artifact a manager can verify later.</p>
+            <div class="tradeoff-board" data-layer="slide-02-pressure-card">
+              <div class="board-col">
+                <span class="mono">Path A</span>
+                <h3>Alert summary</h3>
+                <div class="break-line"></div>
+                <p>The operator still assembles context from scattered evidence.</p>
+              </div>
+              <div class="board-col">
+                <span class="mono">Path B</span>
+                <h3>Static dashboard</h3>
+                <div class="break-line"></div>
+                <p>The incident looks serious, but no proof artifact follows.</p>
+              </div>
+              <div class="board-col">
+                <span class="mono">Path C</span>
+                <h3>Full automation</h3>
+                <div class="break-line"></div>
+                <p>The action is fast, but approval and verification are thin.</p>
+              </div>
+            </div>
+          </div>
+          <div class="pressure-visual">
+            <div class="failure-card">
+              <small>Scattered evidence</small>
+              <strong>Impossible travel, MFA fatigue, privileged app touch.</strong>
+              <p>The operator has signal, but not an action boundary.</p>
+            </div>
+            <div class="failure-card">
+              <small>Policy limbo</small>
+              <strong>Threshold crossed, but accountability is unclear.</strong>
+              <p>Speed without a human record creates another review problem.</p>
+            </div>
+            <div class="failure-card">
+              <small>Proof gap</small>
+              <strong>The result needs to survive the meeting.</strong>
+              <p>Managers need the chain: signal, context, decision, action, proof.</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-note">
+          <span>Judge question answered: what breaks today?</span>
+          <span class="mono">Signal -> Context -> Decision -> Action -> Proof</span>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="3" data-notes="Watch the countdown. Evidence crosses the policy threshold, the operator approves, and the dossier records what happened.">
+        <header class="topline">
+          <a class="brand" href="https://www.youtube.com/watch?v=ZEs74UweOkc">
+            <img src="../public/brand/logomark.svg" alt="" />
+            <span>
+              <strong>Containment Countdown</strong>
+              <small>Live demo</small>
+            </span>
+          </a>
+          <span class="slide-number mono">03 / The show</span>
+        </header>
+        <div class="content">
+          <div class="headline-stack">
+            <span class="kicker">Watch the state change</span>
+            <h2>Threshold crossed -> approval -> contained -> verified.</h2>
+            <span class="boundary-badge">Seeded Splunk-compatible replay · no live Splunk credentials in public demo</span>
+          </div>
+          <div class="demo-stage">
+            <div class="screen-card demo-video" data-layer="slide-03-demo-video">
+              <video src="./recording/pitch-demo-combined-final.mp4" poster="./screenshots/02-mission-threshold.png" muted loop controls playsinline></video>
+              <div class="play-badge" aria-hidden="true">▶</div>
+            </div>
+            <div class="chapter-rail">
+              <div class="chapter">
+                <b>01</b>
+                <span>Hero claim lands before stack details.</span>
+              </div>
+              <div class="chapter">
+                <b>02</b>
+                <span>Threshold crosses from Splunk-compatible evidence.</span>
+              </div>
+              <div class="chapter">
+                <b>03</b>
+                <span>Operator approves containment.</span>
+              </div>
+              <div class="chapter">
+                <b>04</b>
+                <span>Dossier stores evidence, action, and verification.</span>
+              </div>
+              <div class="chapter">
+                <b>05</b>
+                <span>Architecture states the live Splunk boundary.</span>
+              </div>
+            </div>
+          </div>
+          <div class="caption-bar">
+            <strong>Public video: youtube.com/watch?v=ZEs74UweOkc</strong>
+            <span>Static deck includes the proof path; Devpost video carries the full 61-second walkthrough.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="4" data-notes="Three pieces matter: Splunk-shaped evidence, human approval, and stored proof. Live Splunk can replace replay once credentials are configured.">
+        <header class="topline">
+          <a class="brand" href="https://github.com/veithly/containment-countdown/blob/main/architecture_diagram.md">
+            <img src="../public/brand/logomark.svg" alt="" />
+            <span>
+              <strong>Containment Countdown</strong>
+              <small>Mechanism</small>
+            </span>
+          </a>
+          <span class="slide-number mono">04 / How it works</span>
+        </header>
+        <div class="content">
+          <div class="headline-stack">
+            <span class="kicker">The non-obvious mechanism</span>
+            <h2>Approval is the product surface. Proof storage is the receipt.</h2>
+          </div>
+          <div class="mechanism">
+            <div class="mechanism-card" data-layer="slide-04-block-signal-context">
+              <div class="index">1</div>
+              <h3>Signal + context</h3>
+              <p>Seeded Splunk-compatible telemetry models impossible travel, MFA fatigue, privileged touch, and export risk.</p>
+            </div>
+            <div class="mechanism-card" data-layer="slide-04-block-decision">
+              <div class="index">2</div>
+              <h3>Decision</h3>
+              <p>The threshold policy crosses the line, but containment still waits for a human approval record.</p>
+            </div>
+            <div class="mechanism-card" data-layer="slide-04-block-action">
+              <div class="index">3</div>
+              <h3>Action</h3>
+              <p>The deterministic executor changes the incident state from ACTIVE to CONTAINED in replay mode.</p>
+            </div>
+            <div class="mechanism-card" data-layer="slide-04-block-proof">
+              <div class="index">4</div>
+              <h3>Proof</h3>
+              <p>D1 stores rows, KV stores pointers, R2 stores dossiers, and the reasoning note comes from a server-side API.</p>
+            </div>
+          </div>
+          <div class="architecture-strip">
+            <div class="formula-card">
+              <strong>Claim boundary</strong>
+              <p>Seeded Splunk-compatible telemetry. Live Cloudflare proof storage. Live OpenAI-compatible reasoning route.</p>
+            </div>
+            <div class="mini-architecture">
+              <span>Telemetry</span>
+              <span>SPL / REST boundary</span>
+              <span>Threshold policy</span>
+              <span>Approval gate</span>
+              <span>Dossier store</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="5" data-notes="Everything in the public demo is reproducible. Try the mission flow or help us test the live Splunk credential path.">
+        <header class="topline">
+          <a class="brand" href="https://github.com/veithly/containment-countdown">
+            <img src="../public/brand/logomark.svg" alt="" />
+            <span>
+              <strong>Containment Countdown</strong>
+              <small>Proof of life</small>
+            </span>
+          </a>
+          <span class="slide-number mono">05 / Verify</span>
+        </header>
+        <div class="content two-col-reverse">
+          <div class="headline-stack">
+            <span class="kicker">Do not trust. Verify.</span>
+            <h2>Every visible claim has a surface and evidence.</h2>
+            <table class="proof-table" data-layer="slide-05-proof-card">
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Surface</th>
+                  <th>Evidence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Build dossier</td>
+                  <td>/api/dossier/build</td>
+                  <td>persisted:true, cloudflare-d1-kv-r2</td>
+                </tr>
+                <tr>
+                  <td>Approve containment</td>
+                  <td>/api/containment/approve</td>
+                  <td>Five D1 tables receive the replay proof chain</td>
+                </tr>
+                <tr>
+                  <td>Reasoning note</td>
+                  <td>/api/spl/generate</td>
+                  <td>OpenAI-compatible API returns a SOC reasoning note</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <aside class="headline-stack">
+            <div class="link-grid">
+              <a class="link-card" href="https://containment-countdown.veithly.workers.dev">
+                <small>Live demo</small>
+                <strong>Open app</strong>
+                <em>containment-countdown.veithly.workers.dev</em>
+              </a>
+              <a class="link-card" href="https://github.com/veithly/containment-countdown">
+                <small>Repo</small>
+                <strong>Public GitHub</strong>
+                <em>github.com/veithly/containment-countdown</em>
+              </a>
+              <a class="link-card" href="https://www.youtube.com/watch?v=ZEs74UweOkc">
+                <small>Video</small>
+                <strong>Watch demo</strong>
+                <em>youtube.com/watch?v=ZEs74UweOkc</em>
+              </a>
+              <a class="link-card" href="./deck/containment-countdown-deck.pdf">
+                <small>Deck PDF</small>
+                <strong>Review deck</strong>
+                <em>pitch/deck/containment-countdown-deck.pdf</em>
+              </a>
+            </div>
+            <div class="ask-card">
+              <strong>Looking for</strong>
+              <p>Splunk reviewers who can test the live credential path.</p>
+            </div>
+            <div class="formula-card">
+              <strong>Plain limitation</strong>
+                <p>No live Splunk claim until SPLUNK_HOST, SPLUNK_TOKEN, and SPLUNK_INDEX are configured. Replay containment changes demo state only.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

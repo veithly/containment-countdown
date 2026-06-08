@@ -1,0 +1,39 @@
+{
+  "project": "Containment Countdown",
+  "captured_at": "2026-06-08T03:50:59.929Z",
+  "public_demo": "https://containment-countdown.veithly.workers.dev",
+  "claim_boundary": {
+    "splunk": "seeded Splunk-compatible telemetry in public demo",
+    "live_splunk_configured": false,
+    "cloudflare_storage": "live production bindings",
+    "reasoning": "server-side OpenAI-compatible route",
+    "security_action": "replay-mode containment only; no real IAM or firewall change"
+  },
+  "checks": [
+    {
+      "surface": "POST /api/containment/approve",
+      "result": "persisted:true",
+      "storage": ["D1 evidence_events", "D1 approvals", "D1 containment_actions", "D1 verification_runs", "D1 dossiers"],
+      "redaction": "session ids and payload excerpts only; no secrets"
+    },
+    {
+      "surface": "POST /api/dossier/build",
+      "result": "backend:cloudflare-d1-kv-r2",
+      "r2_object": "dossiers/DEMO-001.json",
+      "kv_key": "session:g5-r2-kv-smoke:latest-dossier"
+    },
+    {
+      "surface": "POST /api/spl/generate",
+      "result": "OpenAI-compatible reasoning engine returned SOC note",
+      "transcript_rows": 5,
+      "secret_handling": "OPENAI_API_KEY, OPENAI_BASE_URL, and OPENAI_DEFAULT_MODEL are Worker secrets"
+    }
+  ],
+  "verification_commands": [
+    "curl -X POST https://containment-countdown.veithly.workers.dev/api/containment/approve",
+    "curl -X POST https://containment-countdown.veithly.workers.dev/api/dossier/build",
+    "curl -X POST https://containment-countdown.veithly.workers.dev/api/spl/generate",
+    "DEPLOYED_URL=https://containment-countdown.veithly.workers.dev npx playwright test"
+  ],
+  "source_report": ".hunter/gates/G5-public-smoke.report.json"
+}

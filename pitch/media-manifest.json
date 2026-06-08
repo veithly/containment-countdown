@@ -3,6 +3,18 @@
   "hero": "Approve containment for risky identities in 60 seconds after evidence crosses threshold.",
   "generated_at": "2026-06-08T04:15:00.000Z",
   "public_demo_url": "https://containment-countdown.veithly.workers.dev",
+  "public_repo_url": "https://github.com/veithly/containment-countdown",
+  "pitch_deck": {
+    "html": "pitch/deck.html",
+    "pdf": "pitch/deck/containment-countdown-deck.pdf",
+    "public_url": "https://github.com/veithly/containment-countdown/blob/main/pitch/deck/containment-countdown-deck.pdf",
+    "sha256": "ea77f690ab5cbd7726cdadfd7b11919a363bf20d6d8d8a70260f10553eaf7ab3",
+    "slides": 5,
+    "resolution": "1920x1200",
+    "speaker_notes": "pitch/speaker-notes.md",
+    "thumbs_dir": "pitch/deck-thumbs",
+    "layers_manifest": "pitch/deck-layers/manifest.json"
+  },
   "final_video": {
     "path": "pitch/recording/pitch-demo-combined-final.mp4",
     "duration_seconds": 61.6,

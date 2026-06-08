@@ -37,7 +37,7 @@ export function DossierView({ id }: { id: string }) {
         </div>
         <div>
           <h1>{dossier.identity}</h1>
-          <p>Final state: CONTAINED. Verification passed after approved containment.</p>
+          <p>Final state: CONTAINED in replay mode. Verification uses deterministic Splunk-compatible replay.</p>
         </div>
       </section>
       <nav className="proof-jumpbar" aria-label="Dossier proof sections">
@@ -99,12 +99,13 @@ export function DossierView({ id }: { id: string }) {
             <li>Identity state changed from ACTIVE to CONTAINED.</li>
           </ol>
         </MissionPanel>
-        <MissionPanel title="Verification result" className="dossier-card">
+        <MissionPanel title="Replay verification result" className="dossier-card">
           <div id="verify" className="anchor-target" />
           <div className="verify-block">
             <ShieldCheck size={28} />
             <strong>{dossier.verification.status.toUpperCase()}</strong>
             <code>{dossier.verification.query}</code>
+            <span>Verified against deterministic Splunk-compatible replay, not a live Splunk index.</span>
             <span>{dossier.verification.result}</span>
           </div>
         </MissionPanel>
@@ -114,7 +115,7 @@ export function DossierView({ id }: { id: string }) {
             Export dossier
           </button>
           <span className="status-note" aria-live="polite">{exportStatus}</span>
-          <p>This proof artifact contains the evidence chain, SPL transcript, approval record, execution log, and verification result.</p>
+          <p>This proof artifact contains the evidence chain, SPL transcript, approval record, execution log, and replay verification result.</p>
         </MissionPanel>
       </section>
     </main>

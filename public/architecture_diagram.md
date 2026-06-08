@@ -3,7 +3,7 @@
 ```mermaid
 flowchart LR
   A["Risky identity telemetry"] --> B["Seeded Splunk-compatible replay"]
-  B --> C["SPL transcript / MCP query boundary"]
+  B --> C["SPL transcript / REST query boundary"]
   C --> D["Threshold policy engine"]
   D --> E["Human approval gate"]
   E --> F["Containment executor"]
@@ -12,4 +12,4 @@ flowchart LR
   H --> I["Mobile QR proof viewer"]
 ```
 
-The current build uses deterministic replay and does not claim live Splunk credentials are configured.
+Seeded Splunk-compatible telemetry is the public evidence model. When `SPLUNK_HOST`, `SPLUNK_TOKEN`, and `SPLUNK_INDEX` are configured, the same SPL/REST boundary can use live Splunk as the evidence and verification source.

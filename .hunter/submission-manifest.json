@@ -1,0 +1,60 @@
+{
+  "project": "Containment Countdown",
+  "hackathon": "Splunk Agentic Ops Hackathon",
+  "current_gate": "G7_SUBMISSION_PACK",
+  "prepared_at": "2026-06-08T06:09:45.276Z",
+  "tagline": "Approve containment for risky identities in 60 seconds after evidence crosses threshold.",
+  "hero": {
+    "rumor": "Approve containment for risky identities in 60 seconds",
+    "copy": "Approve containment for risky identities in 60 seconds after evidence crosses threshold.",
+    "spine": "Signal -> Context -> Decision -> Action -> Proof"
+  },
+  "public_links": {
+    "live_demo": "https://containment-countdown.veithly.workers.dev",
+    "repository": "https://github.com/veithly/containment-countdown",
+    "demo_video": "https://www.youtube.com/watch?v=ZEs74UweOkc",
+    "pitch_deck": "https://github.com/veithly/containment-countdown/blob/main/pitch/deck/containment-countdown-deck.pdf",
+    "architecture_diagram": "https://github.com/veithly/containment-countdown/blob/main/architecture_diagram.md",
+    "smoke_proof": "https://github.com/veithly/containment-countdown/blob/main/artifacts/public/smoke-proof.json"
+  },
+  "devpost_required_assets": {
+    "public_video_under_3_minutes": true,
+    "public_open_source_repo": true,
+    "root_architecture_diagram": "architecture_diagram.md",
+    "text_description": "SUBMISSION.md"
+  },
+  "track_fit": {
+    "primary": "Security",
+    "secondary": "Platform & Developer Experience",
+    "reason": "The demo centers on risky identity containment, approval control, verification evidence, and a reproducible Cloudflare deployment."
+  },
+  "real_integrations": {
+    "cloudflare_workers": true,
+    "cloudflare_d1": "stores evidence rows, approvals, containment actions, verification runs, and dossier metadata",
+    "cloudflare_kv": "stores replay and latest dossier pointers",
+    "cloudflare_r2": "stores exported dossier JSON",
+    "openai_compatible_reasoning": "server-side /api/spl/generate route uses Worker secrets"
+  },
+  "claim_boundary": {
+    "live_splunk_configured": false,
+    "splunk_mode": "seeded Splunk-compatible telemetry",
+    "missing_env": ["SPLUNK_HOST", "SPLUNK_TOKEN", "SPLUNK_INDEX"],
+    "plain_language": "The public deployment does not claim live Splunk connectivity. Live Splunk can replace replay after credentials are configured and smoke-tested."
+  },
+  "judge_test_path": [
+    "Open https://containment-countdown.veithly.workers.dev/mission",
+    "Set threshold to 70",
+    "Approve containment",
+    "Open /dossier/demo",
+    "Export or inspect the dossier"
+  ],
+  "verification": {
+    "hero_audit": "node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/audit_hero.mjs /Users/rick/Documents/Project/Hackathon/Splunk",
+    "video_audit": "node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/audit_project.mjs /Users/rick/Documents/Project/Hackathon/Splunk --phase video",
+    "deck_export": "npm run deck:export",
+    "deck_visual_qa": "5 exported 1920x1200 slide thumbnails; Playwright element-boundary QA returned zero offenders",
+    "gpt_pro_g6_review": "pitch/gpt-pro/responses/g6/04-g6-final-package-text-only-review-response.md",
+    "public_smoke_proof": "artifacts/public/smoke-proof.json"
+  },
+  "final_submit_policy": "Browser-assisted Devpost filling must stop before final Submit for human confirmation."
+}
