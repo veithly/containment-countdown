@@ -784,7 +784,7 @@
   </head>
   <body>
     <main class="deck" aria-label="Containment Countdown pitch deck">
-      <section class="slide" data-slide="1" data-notes="Approve containment for risky identities in 60 seconds after evidence crosses threshold. Start with the action, then show the proof.">
+      <section class="slide" data-slide="1" data-notes="0:00-0:30. Say: Risky identity incidents usually stop at an alert. This one does not. Containment Countdown gives the operator one minute: evidence crosses the threshold, a human approves, and the dossier keeps proof of the decision. No click. Let the judge read the promise and proof cards.">
         <div class="scan-mark" aria-hidden="true"></div>
         <header class="topline">
           <a class="brand" href="https://containment-countdown.veithly.workers.dev">
@@ -800,7 +800,7 @@
           <div class="headline-stack">
             <span class="kicker">60-second operator loop</span>
             <h1>Approve containment for risky identities in 60 seconds</h1>
-            <p class="hero-copy">Evidence crosses threshold, a human approves, and the dossier proves the action.</p>
+            <p class="hero-copy">Evidence crosses threshold, a human approves, and the dossier keeps proof of the decision.</p>
             <div class="metric-row">
               <div class="metric">
                 <b>60s</b>
@@ -830,8 +830,8 @@
             <span>Splunk-compatible evidence rows feed the policy threshold.</span>
           </div>
           <div class="proof-pill">
-            <strong>Decision -> Action</strong>
-            <span>Approval changes ACTIVE to CONTAINED in the demo path.</span>
+            <strong>Decision -> Replay action</strong>
+            <span>Approval changes the demo incident from ACTIVE to CONTAINED in replay mode.</span>
           </div>
           <div class="proof-pill">
             <strong>Proof</strong>
@@ -841,7 +841,7 @@
         <div class="accent-line"></div>
       </section>
 
-      <section class="slide" data-slide="2" data-notes="Security teams do not need another alert paragraph. They need a short path from evidence to a reversible, documented action.">
+      <section class="slide" data-slide="2" data-notes="0:30-1:10. Say: The awkward handoff is the product problem. A summary leaves the analyst assembling evidence. A dashboard shows severity but gives no receipt. Full automation is fast, but the approval trail is thin. Point once at the three current paths.">
         <header class="topline">
           <a class="brand" href="https://containment-countdown.veithly.workers.dev">
             <img src="../public/brand/logomark.svg" alt="" />
@@ -856,7 +856,7 @@
           <div class="headline-stack">
             <span class="kicker">The handoff that fails</span>
             <h2>Risky identities still bounce between evidence and action.</h2>
-            <p>The missing piece is not another summary. It is a human-approved state change with an artifact a manager can verify later.</p>
+            <p>The missing piece is not another summary. It is a human-approved replay-mode state change with an artifact a manager can verify later.</p>
             <div class="tradeoff-board" data-layer="slide-02-pressure-card">
               <div class="board-col">
                 <span class="mono">Path A</span>
@@ -892,17 +892,17 @@
             <div class="failure-card">
               <small>Proof gap</small>
               <strong>The result needs to survive the meeting.</strong>
-              <p>Managers need the chain: signal, context, decision, action, proof.</p>
+              <p>Managers need the chain: signal, context, decision, replay action, proof.</p>
             </div>
           </div>
         </div>
         <div class="footer-note">
           <span>Judge question answered: what breaks today?</span>
-          <span class="mono">Signal -> Context -> Decision -> Action -> Proof</span>
+          <span class="mono">Signal -> Context -> Decision -> Replay Action -> Proof</span>
         </div>
       </section>
 
-      <section class="slide" data-slide="3" data-notes="Watch the countdown. Evidence crosses the policy threshold, the operator approves, and the dossier records what happened.">
+      <section class="slide" data-slide="3" data-notes="1:10-2:30 for the Devpost video, or 1:10-4:10 for a longer live walkthrough. Say before play: Here is the full loop. Watch for three things: the threshold crossing, the approval click, and the proof artifact. During video, stay quiet if audio is on. If muted, use one short chapter line at a time. After play: That is the product: not a recommendation, not autonomous remediation, but a governed replay-mode containment state change with a receipt.">
         <header class="topline">
           <a class="brand" href="https://www.youtube.com/watch?v=ZEs74UweOkc">
             <img src="../public/brand/logomark.svg" alt="" />
@@ -915,8 +915,8 @@
         </header>
         <div class="content">
           <div class="headline-stack">
-            <span class="kicker">Watch the state change</span>
-            <h2>Threshold crossed -> approval -> contained -> verified.</h2>
+            <span class="kicker">Watch the replay state change</span>
+            <h2>Threshold crossed -> approval -> replay contained -> verified.</h2>
             <span class="boundary-badge">Seeded Splunk-compatible replay · no live Splunk credentials in public demo</span>
           </div>
           <div class="demo-stage">
@@ -935,11 +935,11 @@
               </div>
               <div class="chapter">
                 <b>03</b>
-                <span>Operator approves containment.</span>
+                <span>Operator approves replay-mode containment.</span>
               </div>
               <div class="chapter">
                 <b>04</b>
-                <span>Dossier stores evidence, action, and verification.</span>
+                <span>Dossier stores evidence, replay action, and verification.</span>
               </div>
               <div class="chapter">
                 <b>05</b>
@@ -954,7 +954,7 @@
         </div>
       </section>
 
-      <section class="slide" data-slide="4" data-notes="Three pieces matter: Splunk-shaped evidence, human approval, and stored proof. Live Splunk can replace replay once credentials are configured.">
+      <section class="slide" data-slide="4" data-notes="After the demo, explain only the mechanism. Four pieces carry the loop: seeded Splunk-compatible telemetry provides the demo signal, threshold policy, human approval, and stored proof. The reasoning route writes a SOC note, but it does not approve the action. Read the blocks left to right.">
         <header class="topline">
           <a class="brand" href="https://github.com/veithly/containment-countdown/blob/main/architecture_diagram.md">
             <img src="../public/brand/logomark.svg" alt="" />
@@ -983,7 +983,7 @@
             </div>
             <div class="mechanism-card" data-layer="slide-04-block-action">
               <div class="index">3</div>
-              <h3>Action</h3>
+              <h3>Replay action</h3>
               <p>The deterministic executor changes the incident state from ACTIVE to CONTAINED in replay mode.</p>
             </div>
             <div class="mechanism-card" data-layer="slide-04-block-proof">
@@ -1008,7 +1008,7 @@
         </div>
       </section>
 
-      <section class="slide" data-slide="5" data-notes="Everything in the public demo is reproducible. Try the mission flow or help us test the live Splunk credential path.">
+      <section class="slide" data-slide="5" data-notes="Close with links and one ask. Say: Everything here is inspectable. The app is public. The repo is public. The deck and smoke proof are in the repo. The claim is narrow: seeded Splunk-compatible telemetry in the public demo, live Cloudflare proof storage, and a live reasoning route. Invite Splunk reviewers to inspect the integration path while the public demo stays on seeded Splunk-compatible telemetry.">
         <header class="topline">
           <a class="brand" href="https://github.com/veithly/containment-countdown">
             <img src="../public/brand/logomark.svg" alt="" />
@@ -1026,7 +1026,7 @@
             <table class="proof-table" data-layer="slide-05-proof-card">
               <thead>
                 <tr>
-                  <th>Action</th>
+                  <th>Replay action</th>
                   <th>Surface</th>
                   <th>Evidence</th>
                 </tr>
@@ -1038,7 +1038,7 @@
                   <td>persisted:true, cloudflare-d1-kv-r2</td>
                 </tr>
                 <tr>
-                  <td>Approve containment</td>
+                  <td>Approve replay containment</td>
                   <td>/api/containment/approve</td>
                   <td>Five D1 tables receive the replay proof chain</td>
                 </tr>
@@ -1075,11 +1075,11 @@
             </div>
             <div class="ask-card">
               <strong>Looking for</strong>
-              <p>Splunk reviewers who can test the live credential path.</p>
+              <p>Splunk reviewers who can inspect the integration path while the public demo stays on seeded Splunk-compatible telemetry.</p>
             </div>
             <div class="formula-card">
               <strong>Plain limitation</strong>
-                <p>No live Splunk claim until SPLUNK_HOST, SPLUNK_TOKEN, and SPLUNK_INDEX are configured. Replay containment changes demo state only.</p>
+                <p>No live Splunk claim until SPLUNK_HOST, SPLUNK_TOKEN, and SPLUNK_INDEX are configured. Replay containment changes demo state only; no IAM or firewall change occurs.</p>
             </div>
           </aside>
         </div>

@@ -6,7 +6,7 @@
 
 > **Approve containment for risky identities in 60 seconds after evidence crosses threshold.**
 
-Evidence crosses threshold, a human approves containment, and a stored dossier proves the action.
+Evidence crosses threshold, a human approves replay-mode containment, and a stored dossier keeps proof of the decision.
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Open-2dd4bf?style=for-the-badge)](https://containment-countdown.veithly.workers.dev)
 [![Demo Video](https://img.shields.io/badge/Demo_Video-YouTube-ef4444?style=for-the-badge)](https://www.youtube.com/watch?v=ZEs74UweOkc)
@@ -18,6 +18,7 @@ Evidence crosses threshold, a human approves containment, and a stored dossier p
 [Live demo](https://containment-countdown.veithly.workers.dev) ·
 [Demo video](https://www.youtube.com/watch?v=ZEs74UweOkc) ·
 [Pitch deck](./pitch/deck/containment-countdown-deck.pdf) ·
+[Deck run-of-show](./pitch/deck-demo-run-of-show.md) ·
 [Architecture](./docs/ARCHITECTURE.md) ·
 [Smoke proof](./artifacts/public/smoke-proof.json) ·
 [Deployment](./docs/DEPLOYMENT.md) ·
@@ -31,12 +32,12 @@ Evidence crosses threshold, a human approves containment, and a stored dossier p
 
 Identity incidents often stop at a summary. Containment Countdown makes the next step visible: evidence accumulates, confidence crosses a policy threshold, an operator approves, and the proof artifact survives the demo.
 
-This deployment uses seeded Splunk-compatible telemetry because live Splunk credentials are not configured. The production Worker still does real work: approval writes land in Cloudflare D1, KV, and R2, and the reasoning note comes from a server-side OpenAI-compatible API call. Agentic scope stays narrow: the reasoning route writes a SOC decision note and the workflow prepares replay-mode containment, but the state change remains human-approved.
+This deployment uses seeded Splunk-compatible telemetry because live Splunk credentials are not configured. The production Worker still does real work: approval writes land in Cloudflare D1, KV, and R2, and the reasoning note comes from a server-side OpenAI-compatible API call. Agentic scope stays narrow: the reasoning route writes a SOC decision note and the workflow prepares replay-mode containment, but the replay-mode state change remains human-approved.
 
 | | Static dashboard | Alert summary | **Containment Countdown** |
 | --- | --- | --- | --- |
-| Operator action | Inspect charts | Read text | **Approve or hold containment** |
-| Proof | Screenshot | Paragraph | **Dossier with evidence, action, verification** |
+| Operator action | Inspect charts | Read text | **Approve or hold replay containment** |
+| Proof | Screenshot | Paragraph | **Dossier with evidence, replay action, verification** |
 | Runtime | View-only | Model-only | **Public Worker with D1/KV/R2 writes** |
 
 ## 30-Second Demo
@@ -55,7 +56,7 @@ This deployment uses seeded Splunk-compatible telemetry because live Splunk cred
     <td width="50%"><img src="./docs/screenshots/architecture.png" alt="Architecture" /></td>
   </tr>
   <tr>
-    <td><b>3.</b> The dossier proves the identity is contained.</td>
+    <td><b>3.</b> The dossier proves the replay containment decision.</td>
     <td><b>4.</b> The architecture names the replay boundary and live services.</td>
   </tr>
 </table>
@@ -138,7 +139,7 @@ npm run record
 npm run video:assemble
 ```
 
-The rendered deck lives at `pitch/deck/containment-countdown-deck.pdf`; the HTML source, slide thumbnails, speaker notes, and motion layers live under `pitch/`.
+The rendered deck lives at `pitch/deck/containment-countdown-deck.pdf`; the HTML source, slide thumbnails, speaker notes, demo run-of-show, and motion layers live under `pitch/`.
 
 ## License
 

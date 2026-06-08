@@ -8,10 +8,11 @@
     "html": "pitch/deck.html",
     "pdf": "pitch/deck/containment-countdown-deck.pdf",
     "public_url": "https://github.com/veithly/containment-countdown/blob/main/pitch/deck/containment-countdown-deck.pdf",
-    "sha256": "ea77f690ab5cbd7726cdadfd7b11919a363bf20d6d8d8a70260f10553eaf7ab3",
+    "sha256": "edf390dd5e4b405397f9f82511c97a8004069beb26bb9d55600f4f3e676a81a1",
     "slides": 5,
     "resolution": "1920x1200",
     "speaker_notes": "pitch/speaker-notes.md",
+    "run_of_show": "pitch/deck-demo-run-of-show.md",
     "thumbs_dir": "pitch/deck-thumbs",
     "layers_manifest": "pitch/deck-layers/manifest.json"
   },

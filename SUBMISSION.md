@@ -4,10 +4,10 @@
 Approve containment for risky identities in 60 seconds after evidence crosses threshold.
 
 ## Description
-Containment Countdown is an operator cockpit for identity-risk incidents. Evidence accumulates, confidence crosses a policy threshold, a human approves containment, and a dossier proves the chain. Agentic scope: the reasoning route produces a SOC decision note and the workflow prepares replay-mode containment, but the state change remains human-approved.
+Containment Countdown is an operator cockpit for identity-risk incidents. Evidence accumulates, confidence crosses a policy threshold, a human approves replay-mode containment, and a dossier proves the chain. Agentic scope: the reasoning route produces a SOC decision note and the workflow prepares replay-mode containment, but the replay-mode state change remains human-approved.
 
 ## Track Fit
-Security. The demo centers on risky identity containment, approval control, and verification evidence.
+Security. The demo centers on risky identity replay containment, approval control, and verification evidence.
 
 ## Public Demo
 https://containment-countdown.veithly.workers.dev
@@ -31,12 +31,13 @@ https://github.com/veithly/containment-countdown/blob/main/artifacts/public/smok
 The public deployment uses seeded Splunk-compatible telemetry. It does not claim live Splunk connectivity because `SPLUNK_HOST`, `SPLUNK_TOKEN`, and `SPLUNK_INDEX` are not configured. Cloudflare D1/KV/R2 persistence and the OpenAI-compatible reasoning route are live production integrations. Replay containment changes the demo incident state only; no real IAM or firewall change occurs.
 
 ## Judge Test Path
-Open `/mission`, set threshold to 70, approve containment, open `/dossier/demo`, and export the dossier.
+Open `/mission`, set threshold to 70, approve replay containment, open `/dossier/demo`, and export the dossier.
 
 ## G6 Package
 - README: https://github.com/veithly/containment-countdown
 - Deck PDF: https://github.com/veithly/containment-countdown/blob/main/pitch/deck/containment-countdown-deck.pdf
 - Speaker notes: `pitch/speaker-notes.md`
+- Deck + demo run-of-show: `pitch/deck-demo-run-of-show.md`
 - Final video: https://www.youtube.com/watch?v=ZEs74UweOkc
 - Media manifest: `pitch/media-manifest.json`
 - Smoke proof: `artifacts/public/smoke-proof.json`
