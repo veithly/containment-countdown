@@ -1,0 +1,25 @@
+node_modules
+.next
+.open-next
+.wrangler
+dist
+out
+coverage
+playwright-report
+test-results
+.env
+.env.*
+.dev.vars
+*.log
+
+# Hackathon media build products (published separately via video host)
+artifacts/playwright/
+artifacts/tts_chunks/
+artifacts/tts_concat.txt
+artifacts/vo.*
+pitch/recording/*.webm
+pitch/recording/*.mp4
+pitch/recording/*.gif
+pitch/polish-combined/assets/*.mp3
+pitch/polish-combined/subtitle-overlays/
+.hunter/archive/

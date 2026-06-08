@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64" role="img" aria-labelledby="title desc">
+  <title id="title">Containment Countdown wordmark</title>
+  <desc id="desc">C60 seal beside the Containment Countdown wordmark.</desc>
+  <rect width="300" height="64" fill="none"/>
+  <g transform="translate(4 4)">
+    <circle cx="28" cy="28" r="21" fill="none" stroke="#7dd3fc" stroke-width="3" stroke-linecap="round" stroke-dasharray="100 30"/>
+    <path d="M28 12 41 18v11c0 8.5-5.5 15.3-13 18.2C20.5 44.3 15 37.5 15 29V18z" fill="none" stroke="#f8fafc" stroke-width="2.6" stroke-linejoin="round"/>
+    <path d="M21 26h16M21 31.5h13M21 37h9" fill="none" stroke="#34d399" stroke-width="2.6" stroke-linecap="round"/>
+    <circle cx="43" cy="43" r="3.6" fill="#34d399"/>
+  </g>
+  <text x="72" y="29" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="700">Containment</text>
+  <text x="72" y="49" fill="#7dd3fc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="700">Countdown</text>
+  <path d="M206 21h58M206 43h42" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+</svg>

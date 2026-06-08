@@ -1,0 +1,44 @@
+{
+  "project": "Containment Countdown",
+  "hero": "Approve containment for risky identities in 60 seconds after evidence crosses threshold.",
+  "generated_at": "2026-06-08T04:15:00.000Z",
+  "public_demo_url": "https://containment-countdown.veithly.workers.dev",
+  "final_video": {
+    "path": "pitch/recording/pitch-demo-combined-final.mp4",
+    "duration_seconds": 61.6,
+    "resolution": "1920x1200",
+    "mean_volume_db": -17.1,
+    "max_volume_db": -1.4,
+    "sha256": "ad4434b8c4b09411cf7de13924b4c08b6e6790ad0d360630d4c1f6b9ebc530ff",
+    "public_url": "pending"
+  },
+  "captions": {
+    "path": "artifacts/captions.srt",
+    "sha256": "ab4b5e62bdbd7b1151d58240c6ac4afde4941284c94cfa3971289e2937957a66",
+    "burned_into_final_video": true
+  },
+  "trailer_gif": {
+    "path": "pitch/recording/trailer.gif",
+    "duration_seconds": 12,
+    "sha256": "a88d5b7227018e3f7ae4022dad55ca99fdd66eafacd2d9de89db845cc2e923c3"
+  },
+  "screenshots": [
+    {
+      "path": "docs/screenshots/hero.png",
+      "sha256": "4d3602f8e3198afd7f355a21f9de7850a8bac4124da9a0e0ee4ebb90c14088d6"
+    },
+    {
+      "path": "docs/screenshots/flow.png",
+      "sha256": "b411e1dbb073b9c2d525cf00c4a9eb96d815a1e125bc00bafddd97bc9bc52c6f"
+    },
+    {
+      "path": "docs/screenshots/mobile.png",
+      "sha256": "f49e24595bd4f51e5ce7c1edf4bcf667c87f6891ca28e82ff8c3fd7c33436f05"
+    },
+    {
+      "path": "docs/screenshots/architecture.png",
+      "sha256": "e55aefdacbe50675fe403d62d1380eae3431ab61e27b191fce646dc5de356661"
+    }
+  ],
+  "claim_boundary": "The public deployment uses seeded Splunk-compatible telemetry. Cloudflare D1/KV/R2 storage and OpenAI-compatible reasoning are live production integrations."
+}

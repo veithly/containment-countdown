@@ -1,0 +1,29 @@
+{
+  "guest_mode": true,
+  "latency_budget_ms": {
+    "first_session_complete": 60000,
+    "first_meaningful_action": 10000,
+    "dossier_visible_after_approval": 5000
+  },
+  "surfaces": [
+    "/mission",
+    "/decision",
+    "/dossier/demo",
+    "/architecture",
+    "/replay"
+  ],
+  "real_backbones": [
+    "persistent state contract: Cloudflare D1/KV/R2",
+    "multi-step flow: evidence -> threshold -> approval -> execution -> verification -> dossier",
+    "human collaboration workflow: operator role approves, viewer role reviews dossier"
+  ],
+  "live_splunk_mode": {
+    "configured": false,
+    "required_for_seeded_replay": false,
+    "required_env": [
+      "SPLUNK_HOST",
+      "SPLUNK_TOKEN",
+      "SPLUNK_INDEX"
+    ]
+  }
+}

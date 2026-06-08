@@ -1,0 +1,228 @@
+{
+  "$schema": "https://hackathonhunter.example.com/schemas/stack.lock.json",
+  "branch": "AI",
+  "delivery_mode": "combined-pitch-demo",
+  "delivery_mode_reason": "Devpost requires a public demo video URL and does not expose a separate required deck field; the pitch and demo will be combined into one under-3-minute video.",
+  "video_target_duration_s": 170,
+  "video_resolution": "1920x1200",
+  "video_composer": "hyperframes",
+  "hackathon": {
+    "name": "Splunk Agentic Ops Hackathon",
+    "url": "https://splunk.devpost.com/",
+    "deadline": "2026-06-15T09:00:00-07:00"
+  },
+  "frontend": {
+    "framework": "next@latest",
+    "styling": "tailwind@latest",
+    "dependency_policy": "frontend deps install with @latest/unversioned targets unless an override_reason is recorded",
+    "visual_style_lane": "security mission-control cockpit",
+    "primary_ui_library": "React Aria components",
+    "supporting_ui_library": "Recharts, lucide-react, framer-motion",
+    "non_tailwind_visual_signature": "radial containment countdown, evidence ticker, dossier seal, and proof timeline rail",
+    "component_blocks": [
+      "CountdownRing",
+      "RiskIdentityCard",
+      "EvidenceStream",
+      "ThresholdSlider",
+      "ApprovalPanel",
+      "SPLTranscript",
+      "VerificationPanel",
+      "DossierViewer"
+    ],
+    "hero_composition": "mission-control cockpit with central countdown, left risk identity, right evidence stream, and bottom proof rail",
+    "visual_differentiation_note": "Avoids generic purple AI gradients, shadcn admin cards, and static observability boards by staging a live security countdown.",
+    "forbidden_lookalikes": [
+      "generic SIEM dashboard",
+      "ChatGPT sidebar clone",
+      "static Grafana board",
+      "shadcn admin template",
+      "SOAR flowchart canvas"
+    ],
+    "qr_mobile_access": {
+      "entry": "QR code opens /dossier/demo read-only proof artifact",
+      "mobile_primary_flow": "inspect containment status, evidence chain, approval record, and verification result in <= 2 taps",
+      "desktop_parity_plan": "desktop remains the full mission-control cockpit for countdown, threshold, and approval interactions",
+      "viewports_to_test": [
+        "390x844",
+        "1920x1200"
+      ]
+    },
+    "asset_sources": {
+      "logo": "logo-generator skill output planned for G3",
+      "avatars": "none; deterministic risk entity glyphs",
+      "generated_images": [],
+      "cutout_assets": {
+        "raw_dirs": [],
+        "output_dirs": [],
+        "command": "not used for app UI"
+      }
+    },
+    "motion": [
+      "framer-motion countdown and evidence-feed state transitions"
+    ]
+  },
+  "ai": {
+    "provider": "OpenAI-compatible provider from local secret source for non-Splunk prototype narration and bounded structured output",
+    "models": {
+      "default": "OPENAI_DEFAULT_MODEL",
+      "reasoning": "OPENAI_MODEL_REASONING",
+      "splunk_hosted_model": "Splunk AI Toolkit Hosted Models / Foundation AI Security Model narrative when credentials are provided"
+    },
+    "useOpenAICompatible": true,
+    "baseURL": "OPENAI_BASE_URL",
+    "env": {
+      "apiKey": "OPENAI_API_KEY",
+      "baseURL": "OPENAI_BASE_URL",
+      "defaultModel": "OPENAI_DEFAULT_MODEL",
+      "sourceKeyFromUser": "OPENAI_API_KEY"
+    }
+  },
+  "deploy": {
+    "frontend": "cloudflare-workers",
+    "backend": "cloudflare-workers",
+    "adapter": "@opennextjs/cloudflare",
+    "bindings": {
+      "d1": [
+        "DB"
+      ],
+      "kv": [
+        "REPLAY_STATE"
+      ],
+      "r2": [
+        "DOSSIERS"
+      ],
+      "queues": []
+    },
+    "production_url": "https://containment-countdown.veithly.workers.dev",
+    "smoke_tested_at": "2026-06-08T03:50:59.929Z",
+    "cloudflare_override_reason": ""
+  },
+  "required_env": [
+    {
+      "name": "SPLUNK_HOST",
+      "scope": "server",
+      "required_for": "live Splunk Enterprise/Cloud telemetry and verification queries",
+      "official_key_url": "https://splunk.devpost.com/resources",
+      "storage": ".env.local / .dev.vars / Wrangler secret",
+      "status": "not-required-for-seeded-replay",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "SPLUNK_TOKEN",
+      "scope": "server",
+      "required_for": "token-based Splunk MCP/API access",
+      "official_key_url": "https://splunk.devpost.com/resources",
+      "storage": ".env.local / .dev.vars / Wrangler secret",
+      "status": "not-required-for-seeded-replay",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "SPLUNK_INDEX",
+      "scope": "server",
+      "required_for": "live query target; seeded fallback uses local replay data",
+      "official_key_url": "https://splunk.devpost.com/resources",
+      "storage": ".env.local / .dev.vars / Wrangler variable",
+      "status": "not-required-for-seeded-replay",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "OPENAI_API_KEY",
+      "scope": "server",
+      "required_for": "bounded structured-output fallback when Splunk Hosted Models are unavailable locally",
+      "official_key_url": "https://platform.openai.com/api-keys",
+      "storage": ".env.local / .dev.vars / Wrangler secret",
+      "status": "configured"
+    },
+    {
+      "name": "OPENAI_BASE_URL",
+      "scope": "server",
+      "required_for": "OpenAI-compatible fallback provider endpoint",
+      "official_key_url": "https://platform.openai.com/docs/api-reference",
+      "storage": ".env.local / .dev.vars / Wrangler variable",
+      "status": "configured"
+    },
+    {
+      "name": "OPENAI_DEFAULT_MODEL",
+      "scope": "server",
+      "required_for": "OpenAI-compatible fallback model id",
+      "official_key_url": "https://platform.openai.com/docs/models",
+      "storage": ".env.local / .dev.vars / Wrangler variable",
+      "status": "configured"
+    }
+  ],
+  "real_data_sources": [
+    {
+      "id": "seeded-splunk-compatible-telemetry",
+      "type": "database",
+      "source": "D1-backed project seed dataset shaped like Splunk security events",
+      "evidence": "replay scenario produces saved EvidenceRecord rows, KV replay state, and SPL-style query transcript"
+    },
+    {
+      "id": "simulated-containment-endpoint",
+      "type": "api",
+      "source": "Next.js route handler backed by D1/KV contracts that deterministically transitions identity ACTIVE -> CONTAINED",
+      "evidence": "ContainmentAction row, execution log, ownerId/sessionId, and verification report"
+    },
+    {
+      "id": "dossier-storage",
+      "type": "database",
+      "source": "Cloudflare D1/R2 proof artifact storage with KV latest-dossier pointer",
+      "evidence": "downloadable Containment Dossier JSON/PDF"
+    }
+  ],
+  "product_backbone": {
+    "identity": "guest demo session with operator/viewer roles",
+    "storage": "Cloudflare D1 for events/actions/dossiers, KV for replay state, R2 for exports",
+    "ownership_fields": [
+      "sessionId",
+      "entityId",
+      "dossierId",
+      "roleId",
+      "createdBy"
+    ],
+    "multi_user_proof": "desktop operator executes containment while mobile QR viewer observes generated dossier",
+    "stateless_exception_reason": ""
+  },
+  "feature_density": {
+    "user_case_beats": [
+      {
+        "user_case": "HERO PATH",
+        "beat": "Risk evidence accumulates and countdown advances",
+        "route": "/mission",
+        "action_selector": "[data-testid='threshold-slider']",
+        "state_change": "risk score and countdown state update",
+        "backend_evidence": "EvidenceRecord rows and countdown-progress.spec.ts"
+      },
+      {
+        "user_case": "HERO PATH",
+        "beat": "Operator approves containment",
+        "route": "/decision",
+        "action_selector": "[data-testid='approve-containment']",
+        "state_change": "identity status ACTIVE -> CONTAINED",
+        "backend_evidence": "ContainmentAction row and containment.spec.ts"
+      },
+      {
+        "user_case": "Security Manager Review",
+        "beat": "Dossier proves containment",
+        "route": "/dossier/demo",
+        "action_selector": "[data-testid='dossier-export']",
+        "state_change": "proof artifact is saved and exportable",
+        "backend_evidence": "Dossier row/R2 object and dossier.spec.ts"
+      }
+    ]
+  },
+  "prd_coverage": {
+    "source": "pitch/project_prd.md",
+    "minimum": "every P0/P1 REQ-### row has route/API/real-data/test/deploy evidence before recording"
+  },
+  "extras": {
+    "auth": "guest session only for demo",
+    "db": "Cloudflare D1",
+    "analytics": null,
+    "errorTracking": null
+  },
+  "notes": "Production G5 deploy uses real Cloudflare D1/KV/R2 persistence and a real OpenAI-compatible reasoning API. Live Splunk credentials remain absent, so all UI, docs, video, and submission copy must say seeded Splunk-compatible telemetry unless SPLUNK_HOST/SPLUNK_TOKEN/SPLUNK_INDEX are later configured and smoke-tested."
+}

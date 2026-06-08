@@ -1,0 +1,34 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "containment-countdown",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-06-08",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "APP_MODE": "seeded-replay"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "containment-countdown-db",
+      "database_id": "de43e7f6-eb00-41f5-8d49-f7edc3262a30",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "REPLAY_STATE",
+      "id": "710521c3fdbf433a92ca572aa02a20b5"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "DOSSIERS",
+      "bucket_name": "containment-countdown-dossiers"
+    }
+  ]
+}

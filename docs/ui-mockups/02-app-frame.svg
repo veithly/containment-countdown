@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1200" viewBox="0 0 1920 1200">
+  <rect width="1920" height="1200" fill="#090b0f"/>
+  <rect x="0" y="0" width="1920" height="8" fill="#ff4d5e"/>
+  <text x="64" y="70" fill="#f5f7fa" font-family="Inter,Arial" font-size="42" font-weight="800">Mission Control: Containment Countdown</text>
+  <text x="64" y="112" fill="#9aa7b7" font-family="Inter,Arial" font-size="22">Risk entity, evidence feed, SPL transcript, approval gate, verification rail.</text>
+  <rect x="60" y="170" width="430" height="700" rx="10" fill="#151922" stroke="#2e3542"/>
+  <text x="84" y="220" fill="#9aa7b7" font-family="Inter,Arial" font-size="18">RISK ENTITY</text>
+  <text x="84" y="270" fill="#f5f7fa" font-family="Inter,Arial" font-size="34" font-weight="800">svc-admin-07</text>
+  <text x="84" y="324" fill="#ff4d5e" font-family="Inter,Arial" font-size="24" font-weight="700">ACTIVE THREAT</text>
+  <rect x="84" y="365" width="382" height="18" rx="5" fill="#2d1118"/>
+  <rect x="84" y="365" width="338" height="18" rx="5" fill="#ff4d5e"/>
+  <text x="84" y="430" fill="#f5f7fa" font-family="Inter,Arial" font-size="20">evidence score 84 / threshold 80</text>
+  <circle cx="998.4000000000001" cy="490" r="190" fill="none" stroke="#222937" stroke-width="34"/>
+  <path d="M 998.4000000000001 300 A 190 190 0 1 1 893.9000000000001 647.7" fill="none" stroke="#ff4d5e" stroke-linecap="round" stroke-width="34"/>
+  <text x="998.4000000000001" y="478" fill="#f5f7fa" text-anchor="middle" font-family="Inter,Arial" font-size="96" font-weight="900">00:37</text>
+  <text x="998.4000000000001" y="524" fill="#f7b955" text-anchor="middle" font-family="Inter,Arial" font-size="26" font-weight="700">CONTAINMENT CLOCK</text>
+  <rect x="1400" y="170" width="470" height="700" rx="10" fill="#151922" stroke="#2e3542"/>
+  <text x="1424" y="220" fill="#9aa7b7" font-family="Inter,Arial" font-size="18">EVIDENCE FEED</text>
+  <rect x="1424" y="255" width="422" height="70" rx="8" fill="#1e2430"/><circle cx="1446" cy="290" r="9" fill="#ff4d5e"/><text x="1462" y="298" fill="#f5f7fa" font-family="Inter,Arial" font-size="19">Impossible travel</text><rect x="1424" y="359" width="422" height="70" rx="8" fill="#1e2430"/><circle cx="1446" cy="394" r="9" fill="#ff4d5e"/><text x="1462" y="402" fill="#f5f7fa" font-family="Inter,Arial" font-size="19">Privilege escalation</text><rect x="1424" y="463" width="422" height="70" rx="8" fill="#1e2430"/><circle cx="1446" cy="498" r="9" fill="#ff4d5e"/><text x="1462" y="506" fill="#f5f7fa" font-family="Inter,Arial" font-size="19">Sensitive data access</text><rect x="1424" y="567" width="422" height="70" rx="8" fill="#1e2430"/><circle cx="1446" cy="602" r="9" fill="#f7b955"/><text x="1462" y="610" fill="#f5f7fa" font-family="Inter,Arial" font-size="19">Failed auth burst</text>
+  <rect x="691.1999999999999" y="920" width="520" height="86" rx="10" fill="#59d487"/>
+  <text x="951.1999999999999" y="973" fill="#07110b" text-anchor="middle" font-family="Inter,Arial" font-size="28" font-weight="900">APPROVE CONTAINMENT</text>
+  <text x="64" y="1152" fill="#9aa7b7" font-family="Inter,Arial" font-size="18">App beat: threshold changes the outcome and generates a Containment Dossier.</text>
+</svg>

@@ -1,0 +1,43 @@
+{
+  "$schema": "narration.v1",
+  "language": "en",
+  "voice": "configured TTS provider from .env.local",
+  "first_sentence": "Approve containment for risky identities in 60 seconds after evidence crosses threshold.",
+  "scenes": [
+    {
+      "id": "01_hook",
+      "title": "Hook",
+      "text": "Approve containment for risky identities in 60 seconds after evidence crosses threshold. A finance admin starts as active, the evidence clock starts, and the judge sees the consequence before the pitch explains the stack.",
+      "audio_path": "artifacts/tts_chunks/01_hook.wav",
+      "duration_ms": 11040
+    },
+    {
+      "id": "02_evidence",
+      "title": "Evidence crosses threshold",
+      "text": "The operator lowers the policy threshold and the replayed Splunk-compatible events push confidence over the line. The screen does not return advice. It changes the containment state.",
+      "audio_path": "artifacts/tts_chunks/02_evidence.wav",
+      "duration_ms": 11680
+    },
+    {
+      "id": "03_approval",
+      "title": "Human approval",
+      "text": "Approval stays human-gated. One click writes evidence, approval, action, verification, and dossier records to production Cloudflare D1, KV, and R2.",
+      "audio_path": "artifacts/tts_chunks/03_approval.wav",
+      "duration_ms": 10720
+    },
+    {
+      "id": "04_dossier",
+      "title": "Proof dossier",
+      "text": "The dossier shows the chain: signal, context, decision, action, and proof. The export is stored server-side, so a reviewer can inspect the same artifact from a phone.",
+      "audio_path": "artifacts/tts_chunks/04_dossier.wav",
+      "duration_ms": 17760
+    },
+    {
+      "id": "05_boundary",
+      "title": "Architecture boundary",
+      "text": "This deployment uses seeded Splunk-compatible telemetry because live Splunk credentials are not configured. The OpenAI-compatible reasoning call and Cloudflare proof storage are live.",
+      "audio_path": "artifacts/tts_chunks/05_boundary.wav",
+      "duration_ms": 10400
+    }
+  ]
+}

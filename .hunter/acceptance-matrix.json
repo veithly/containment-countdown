@@ -1,0 +1,47 @@
+{
+  "user_case_beats": [
+    {
+      "user_case": "HERO PATH",
+      "beat": "Risk evidence accumulates and countdown advances",
+      "route": "/mission",
+      "action": "Click Replay evidence or adjust threshold",
+      "action_selector": "[data-testid='threshold-slider']",
+      "state_change": "confidence meter, countdown dial, crossing item, and proof rail update",
+      "backend_evidence": "POST /api/evidence/tick returns EvidenceRecord rows and tests/onboard.spec.ts covers the hero path"
+    },
+    {
+      "user_case": "HERO PATH",
+      "beat": "Operator approves containment",
+      "route": "/mission",
+      "action": "Click Approve containment",
+      "action_selector": "[data-testid='approve-containment']",
+      "state_change": "approval record is created and identity status changes ACTIVE -> CONTAINED",
+      "backend_evidence": "POST /api/containment/approve returns approvalId, sessionId, roleId, ownerId-compatible payload"
+    },
+    {
+      "user_case": "Security Manager Review",
+      "beat": "Dossier proves containment",
+      "route": "/dossier/demo",
+      "action": "Open mobile proof dossier and export",
+      "action_selector": "[data-testid='dossier-export']",
+      "state_change": "verification result, evidence chain, threshold policy, approval, execution, and export affordance are visible",
+      "backend_evidence": "POST /api/dossier/build returns sessionId, ownerId, roleId, D1/KV/R2 storage contract fields"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "ACC-001",
+      "requirement": "Same evidence update drives confidence, dial, and proof rail",
+      "route": "/mission",
+      "test": "tests/onboard.spec.ts",
+      "status": "implemented"
+    },
+    {
+      "id": "ACC-002",
+      "requirement": "Dossier is readable on mobile without live Splunk credentials",
+      "route": "/dossier/demo",
+      "test": "tests/onboard.spec.ts",
+      "status": "implemented"
+    }
+  ]
+}

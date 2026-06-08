@@ -1,0 +1,17 @@
+Mature Products
+Product	Official URL	Mature product loop	Structural move to borrow	Do not clone	Possible Splunk hackathon demo primitive
+PROD-01 — Splunk Observability Cloud	https://www.splunk.com/en_us/products/observability-cloud.html
+	Observe → detect anomaly/performance issue → correlate across metrics, traces, logs → identify likely root cause → drive remediation workflow	Unified telemetry graph that compresses investigation time by automatically linking signals and surfacing likely causes	Full observability platform, dashboards, telemetry storage, or APM replacement	Agent consumes Splunk telemetry, generates incident hypothesis, opens remediation task, executes approved action, and writes before/after evidence artifact (incident report or trace comparison)
+PROD-02 — Splunk Enterprise Security	https://www.splunk.com/en_us/products/enterprise-security.html
+	Ingest security signals → correlate detections → prioritize risk → investigate → respond	Risk-based prioritization that converts many signals into a small set of actionable entities	SIEM replacement, detection content library, or threat intelligence platform	Agent evaluates a risky entity, gathers supporting evidence from Splunk, recommends action, executes containment approval flow, and emits signed investigation summary
+PROD-03 — Splunk SOAR	https://www.splunk.com/en_us/products/splunk-security-orchestration-and-automation.html
+	Trigger event → orchestrate playbook → enrich context → execute actions → document outcome	Playbook-oriented state machine where actions produce structured artifacts and audit trails	Generic workflow builder or large playbook catalog	Agent invokes MCP/API tools as a lightweight playbook, performs multi-step remediation, and produces machine-verifiable execution log within 60 seconds
+PROD-04 — PagerDuty AIOps	https://www.pagerduty.com/use-cases/aiops/
+	Detect events → reduce noise → correlate incidents → identify likely root cause → accelerate response	Event compression and incident grouping that transform alert floods into a single operational decision	Pager replacement, alert routing system, or on-call platform	Agent clusters related Splunk alerts into one incident, generates root-cause narrative, triggers a corrective action, and posts proof showing alert reduction and state change
+PROD-05 — Datadog Watchdog	https://www.datadoghq.com/product/watchdog/
+	Continuously analyze telemetry → surface anomalies automatically → explain impact → direct operator attention	Proactive machine-generated insights that eliminate manual hunting for anomalies	Anomaly detection engine or ML observability platform	Agent watches Splunk data stream, identifies abnormal condition, creates an evidence-backed recommendation, executes a fix, and generates before/after validation artifact automatically
+Cross-cutting pattern visible across all five
+
+Signal → Context → Decision → Action → Proof
+
+The common mature-product loop is not merely detecting something. The value is created when telemetry or events are converted into a trusted operational action and accompanied by evidence that the action improved system state. That pattern aligns strongly with hackathon demos where a Splunk-powered agent creates a measurable operational state change and leaves behind a verifiable artifact within 60 seconds.

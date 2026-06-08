@@ -1,0 +1,57 @@
+{
+  "gate": "G5_PUBLIC_URL_SMOKE",
+  "status": "pass",
+  "passed": true,
+  "production_url": "https://containment-countdown.veithly.workers.dev",
+  "smoke_tested_at": "2026-06-08T03:50:59.929Z",
+  "checks": {
+    "opennext_build": true,
+    "wrangler_types": true,
+    "wrangler_dry_run": true,
+    "wrangler_authenticated": true,
+    "production_url_recorded": true,
+    "production_smoke_evidence": true,
+    "deployed_playwright": true,
+    "visual_qa_desktop_mobile": true,
+    "cloudflare_bindings": true,
+    "openai_compatible_api": true,
+    "live_splunk_configured": false
+  },
+  "commands": [
+    "npm run cf:types",
+    "npx wrangler d1 migrations apply DB --remote",
+    "npm run cf:build && npm run cf:deploy",
+    "curl -I https://containment-countdown.veithly.workers.dev/mission",
+    "DEPLOYED_URL=https://containment-countdown.veithly.workers.dev npx playwright test",
+    "node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/visual_qa_scan.mjs /Users/rick/Documents/Project/Hackathon/Splunk --url https://containment-countdown.veithly.workers.dev --fail-on warn",
+    "npx wrangler d1 execute DB --remote --command <session row count query>",
+    "npx wrangler r2 object get containment-countdown-dossiers/dossiers/DEMO-001.json --remote --file /tmp/containment-dossier-smoke.json",
+    "npx wrangler kv key get session:g5-r2-kv-smoke:latest-dossier --binding REPLAY_STATE --remote",
+    "curl -X POST https://containment-countdown.veithly.workers.dev/api/spl/generate"
+  ],
+  "evidence": {
+    "routes": [
+      "/",
+      "/app",
+      "/about",
+      "/mission",
+      "/decision",
+      "/architecture",
+      "/replay",
+      "/dossier/demo"
+    ],
+    "public_route_status": "HTTP 200 for /mission, /app, /about",
+    "d1": "session g5-chain-smoke has 1 row each in evidence_events, approvals, containment_actions, verification_runs, dossiers",
+    "kv": "session:g5-r2-kv-smoke:latest-dossier returned DEMO-001",
+    "r2": "dossiers/DEMO-001.json fetched from remote R2 with sessionId g5-r2-kv-smoke and 5 evidence events",
+    "api": "POST /api/containment/approve and /api/dossier/build returned persisted:true backend cloudflare-d1-kv-r2",
+    "openai": "POST /api/spl/generate returned OpenAI-compatible reasoning engine output with transcriptRows=5",
+    "visual_qa": "0 errors, 0 warnings across desktop/mobile routes",
+    "playwright": "3 passed, 1 expected desktop skip for mobile-only proof check",
+    "gpt_pro": "pitch/gpt-pro/responses/deploy/01-g5-real-api-smoke-review-response.md verdict pass"
+  },
+  "limitations": {
+    "live_splunk": "SPLUNK_HOST, SPLUNK_TOKEN, and SPLUNK_INDEX are absent; production honestly uses seeded Splunk-compatible telemetry.",
+    "claim_boundary": "Do not claim live Splunk connectivity until credentials are configured and smoke-tested."
+  }
+}

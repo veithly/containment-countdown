@@ -1,0 +1,72 @@
+{
+  "source": "pitch/project_prd.md",
+  "selected_concept": "Containment Countdown",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "priority": "P0",
+      "route": "/mission",
+      "component": "CountdownEngine",
+      "api": "POST /api/evidence/tick",
+      "real_data_source": "seeded Splunk-compatible telemetry or live Splunk",
+      "state": "RiskEntity",
+      "test": "tests/countdown-progress.spec.ts",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-002",
+      "priority": "P0",
+      "route": "/mission",
+      "component": "EvidenceStream",
+      "api": "POST /api/mcp/query",
+      "real_data_source": "Splunk MCP Server when credentials are provided",
+      "state": "EvidenceRecord[]",
+      "test": "tests/mcp-evidence.spec.ts",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-003",
+      "priority": "P0",
+      "route": "/decision",
+      "component": "SPLTranscript",
+      "api": "POST /api/spl/generate",
+      "real_data_source": "Splunk AI Assistant / SPL-style transcript fallback",
+      "state": "Transcript",
+      "test": "tests/spl-transcript.spec.ts",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-004",
+      "priority": "P0",
+      "route": "/decision",
+      "component": "ApprovalPanel",
+      "api": "POST /api/containment/approve",
+      "real_data_source": "deterministic threshold policy",
+      "state": "ApprovalRecord",
+      "test": "tests/approval-gate.spec.ts",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-005",
+      "priority": "P0",
+      "route": "/decision",
+      "component": "ContainmentEndpoint",
+      "api": "POST /api/containment/execute",
+      "real_data_source": "simulated containment endpoint",
+      "state": "ACTIVE -> CONTAINED",
+      "test": "tests/containment.spec.ts",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-006",
+      "priority": "P0",
+      "route": "/dossier/[id]",
+      "component": "DossierViewer",
+      "api": "POST /api/dossier/build",
+      "real_data_source": "Evidence + audit records",
+      "state": "ContainmentDossier",
+      "test": "tests/dossier.spec.ts",
+      "status": "planned"
+    }
+  ]
+}

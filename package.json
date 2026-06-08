@@ -1,0 +1,45 @@
+{
+  "name": "containment-countdown",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 4387",
+    "build": "next build",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare preview",
+    "cf:deploy": "opennextjs-cloudflare deploy",
+    "cf:types": "wrangler types worker-configuration.d.ts",
+    "deploy": "wrangler deploy",
+    "screenshots": "node scripts/take-screenshots.mjs",
+    "record": "node scripts/record-demo.mjs",
+    "video:assemble": "node scripts/assemble-g6-video.mjs",
+    "start": "next start -p 4387",
+    "test": "playwright test",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@opennextjs/cloudflare": "^1.19.11",
+    "clsx": "latest",
+    "framer-motion": "latest",
+    "lucide-react": "latest",
+    "next": "latest",
+    "openai": "^6.42.0",
+    "react": "latest",
+    "react-aria-components": "latest",
+    "react-dom": "latest",
+    "recharts": "latest"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "sharp": "^0.34.5",
+    "tailwindcss": "latest",
+    "typescript": "latest",
+    "wrangler": "^4.98.0"
+  }
+}

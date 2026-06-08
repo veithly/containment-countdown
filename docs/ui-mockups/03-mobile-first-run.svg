@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<rect width="390" height="844" fill="#090b0f"/><rect width="390" height="8" fill="#ff4d5e"/>
+<text x="20" y="42" fill="#f5f7fa" font-family="Inter,Arial" font-size="24" font-weight="800">Containment Dossier</text>
+<text x="20" y="76" fill="#9aa7b7" font-family="Inter,Arial" font-size="12">Mobile QR proof view for judges.</text>
+<rect x="20" y="96" width="350" height="112" rx="10" fill="#151922" stroke="#2e3542"/>
+<text x="40" y="126" fill="#9aa7b7" font-family="Inter,Arial" font-size="12">RISK ENTITY</text>
+<text x="40" y="154" fill="#f5f7fa" font-family="Inter,Arial" font-size="22" font-weight="800">svc-admin-07</text>
+<text x="40" y="182" fill="#ff4d5e" font-family="Inter,Arial" font-size="15" font-weight="700">ACTIVE THREAT</text>
+<rect x="40" y="192" width="310" height="8" rx="4" fill="#2d1118"/><rect x="40" y="192" width="260" height="8" rx="4" fill="#ff4d5e"/>
+<circle cx="195" cy="305" r="72" fill="none" stroke="#222937" stroke-width="16"/>
+<path d="M 195 233 A 72 72 0 1 1 152 363" fill="none" stroke="#ff4d5e" stroke-linecap="round" stroke-width="16"/>
+<text x="195" y="295" fill="#f5f7fa" text-anchor="middle" font-family="Inter,Arial" font-size="44" font-weight="900">00:37</text>
+<text x="195" y="332" fill="#f7b955" text-anchor="middle" font-family="Inter,Arial" font-size="13" font-weight="700">CONTAINMENT CLOCK</text>
+<rect x="20" y="420" width="350" height="265" rx="10" fill="#151922" stroke="#2e3542"/>
+<text x="44" y="452" fill="#9aa7b7" font-family="Inter,Arial" font-size="12">EVIDENCE FEED</text>
+<rect x="44" y="480" width="302" height="34" rx="8" fill="#1e2430"/><circle cx="63" cy="497" r="5" fill="#ff4d5e"/><text x="80" y="502" fill="#f5f7fa" font-family="Inter,Arial" font-size="12">Impossible travel</text><rect x="44" y="524" width="302" height="34" rx="8" fill="#1e2430"/><circle cx="63" cy="541" r="5" fill="#ff4d5e"/><text x="80" y="546" fill="#f5f7fa" font-family="Inter,Arial" font-size="12">Privilege escalation</text><rect x="44" y="568" width="302" height="34" rx="8" fill="#1e2430"/><circle cx="63" cy="585" r="5" fill="#ff4d5e"/><text x="80" y="590" fill="#f5f7fa" font-family="Inter,Arial" font-size="12">Sensitive data access</text><rect x="44" y="612" width="302" height="34" rx="8" fill="#1e2430"/><circle cx="63" cy="629" r="5" fill="#f7b955"/><text x="80" y="634" fill="#f5f7fa" font-family="Inter,Arial" font-size="12">Failed auth burst</text>
+<rect x="20" y="720" width="350" height="64" rx="10" fill="#59d487"/>
+<text x="195" y="758" fill="#07110b" text-anchor="middle" font-family="Inter,Arial" font-size="16" font-weight="900">APPROVE CONTAINMENT</text>
+<text x="20" y="816" fill="#9aa7b7" font-family="Inter,Arial" font-size="11">Inspect evidence, approval, action, and verification.</text>
+</svg>
